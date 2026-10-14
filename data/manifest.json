@@ -1,0 +1,60 @@
+{
+  "source": "Sintético autoral para demonstração acadêmica; 80 cenários, 5 redações por cenário.",
+  "license": "CC0-1.0",
+  "split_rule": "Famílias 0-9 treino, 10-12 validação, 13-15 teste por categoria.",
+  "counts": {
+    "train": {
+      "acesso": 50,
+      "rede": 50,
+      "hardware": 50,
+      "software": 50,
+      "outros": 50
+    },
+    "validation": {
+      "acesso": 15,
+      "rede": 15,
+      "hardware": 15,
+      "software": 15,
+      "outros": 15
+    },
+    "test": {
+      "acesso": 15,
+      "rede": 15,
+      "hardware": 15,
+      "software": 15,
+      "outros": 15
+    }
+  },
+  "sha256": {
+    "train": "870434741c1e18878df71c786dea57c46543d44654cdf801becf72420976dd14",
+    "validation": "e878f133a68e2e9ce18a9a56eb0716d87d32571c9ea4421c40f13ba0b42e6040",
+    "test": "2a0a578f9fa9dd1a3bf2ac3d426db8c32e7e2a574397e9f971a558f580e09952"
+  },
+  "human_review_ids": [
+    "acesso-13-0",
+    "acesso-13-1",
+    "acesso-14-0",
+    "acesso-14-1",
+    "acesso-15-0",
+    "rede-13-0",
+    "rede-13-1",
+    "rede-14-0",
+    "rede-14-1",
+    "rede-15-0",
+    "hardware-13-0",
+    "hardware-13-1",
+    "hardware-14-0",
+    "hardware-14-1",
+    "hardware-15-0",
+    "software-13-0",
+    "software-13-1",
+    "software-14-0",
+    "software-14-1",
+    "software-15-0",
+    "outros-13-0",
+    "outros-13-1",
+    "outros-14-0",
+    "outros-14-1",
+    "outros-15-0"
+  ]
+}
