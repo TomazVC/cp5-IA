@@ -11,6 +11,7 @@
 - Ruff: checagem de erros/imports F sem problemas.
 - Frontend verificado com cliente oficial Gradio contra o servidor real: modelo original e treinado executaram em CUDA, devolveram categoria/ação/resposta bruta/tempo, e entrada vazia foi rejeitada. Limites de entrada conferidos na configuração servida. Evidência: `evidence/frontend.json`.
 - Oito avaliações de 75 respostas auditadas: métricas recalculadas a partir das respostas brutas coincidem com os relatórios. Três treinos com pesos atualizados, 96 passos e três épocas; CSV humano com 25 casos e notas em branco.
+- Casos de falha verificados: adaptador ausente é rejeitado antes de carregar o modelo; com CUDA ocultada somente no processo de teste, a execução aborta com mensagem clara e não usa CPU.
 
 ## Achados da revisão independente e correções
 
