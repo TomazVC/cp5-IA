@@ -1,0 +1,8 @@
+﻿.venv/
+.cache/
+artifacts/
+.superpowers/
+__pycache__/
+*.pyc
+.gradio/
+*.log
