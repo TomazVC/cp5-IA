@@ -106,7 +106,8 @@ class Runtime:
         options = {'do_sample': temperature > 0, 'max_new_tokens': CONFIG['max_new_tokens'],
                    'pad_token_id': self.tokenizer.pad_token_id,
                    'temperature': temperature if temperature > 0 else 1.0,
-                   'top_p': CONFIG['top_p'] if temperature > 0 else 1.0, 'top_k': 0}
+                   'top_p': CONFIG['top_p'] if temperature > 0 else 1.0,
+                   'top_k': 0 if temperature > 0 else 50}
         if temperature > 0:
             options.update(temperature=temperature, top_p=CONFIG['top_p'])
         with torch.inference_mode():

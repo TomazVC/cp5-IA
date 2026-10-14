@@ -1,7 +1,6 @@
 """Contrato de dados, validação e métricas, sem dependência de GPU."""
 import hashlib
 import json
-from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
