@@ -1,0 +1,1289 @@
+{
+  "name": "lr-0.0002",
+  "split": "test",
+  "temperature": 0,
+  "identity": {
+    "config": {
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "seed": 42,
+      "max_length": 256,
+      "max_new_tokens": 96,
+      "epochs": 3,
+      "batch_size": 1,
+      "gradient_accumulation_steps": 8,
+      "lora_r": 8,
+      "lora_alpha": 16,
+      "lora_dropout": 0.05,
+      "learning_rates": [
+        5e-05,
+        0.0001,
+        0.0002
+      ],
+      "temperatures": [
+        0,
+        0.3,
+        0.7
+      ],
+      "top_p": 0.9
+    },
+    "data_sha256": "caa1f5e109b37266fbc3f51f4da6268785836fdb294fa270d761a92630889684",
+    "adapter_sha256": "8d56aec391c291381b278086759b18e2f86568ea866a4f3dec29178ccfab444b",
+    "prompt_sha256": "6dcf96bd1f224118df00099ae592d06bae880e02dbce5f888b5aa2e73937ee49"
+  },
+  "metrics": {
+    "n": 75,
+    "accuracy": 0.7333333333333333,
+    "macro_f1": 0.7295238095238095,
+    "json_valid_rate": 1.0,
+    "confusion_matrix": {
+      "acesso": {
+        "acesso": 10,
+        "rede": 0,
+        "hardware": 0,
+        "software": 0,
+        "outros": 5,
+        "invalido": 0
+      },
+      "rede": {
+        "acesso": 0,
+        "rede": 15,
+        "hardware": 0,
+        "software": 0,
+        "outros": 0,
+        "invalido": 0
+      },
+      "hardware": {
+        "acesso": 0,
+        "rede": 0,
+        "hardware": 10,
+        "software": 0,
+        "outros": 5,
+        "invalido": 0
+      },
+      "software": {
+        "acesso": 0,
+        "rede": 0,
+        "hardware": 0,
+        "software": 15,
+        "outros": 0,
+        "invalido": 0
+      },
+      "outros": {
+        "acesso": 0,
+        "rede": 5,
+        "hardware": 0,
+        "software": 5,
+        "outros": 5,
+        "invalido": 0
+      }
+    },
+    "mean_seconds": 0.8252296906585495,
+    "median_seconds": 0.8041890002787113,
+    "peak_vram_mb": 975.9091796875,
+    "mean_output_tokens": 32.626666666666665
+  },
+  "rows": [
+    {
+      "id": "acesso-13-0",
+      "family": "acesso-13",
+      "prompt": "Tenho conta ativa, mas meu perfil não permite aprovar solicitações.",
+      "category": "acesso",
+      "action": "Peça ao gestor responsável que valide o perfil e solicite a permissão necessária.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Confira a configuração da sua conta e solicite ao administrador que autorize o processo.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Confira a configuração da sua conta e solicite ao administrador que autorize o processo."
+      },
+      "seconds": 0.9644645997323096,
+      "peak_vram_mb": 975.0615234375,
+      "input_tokens": 174,
+      "output_tokens": 36
+    },
+    {
+      "id": "acesso-13-1",
+      "family": "acesso-13",
+      "prompt": "Olá, preciso de ajuda: Tenho conta ativa, mas meu perfil não permite aprovar solicitações.",
+      "category": "acesso",
+      "action": "Peça ao gestor responsável que valide o perfil e solicite a permissão necessária.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Confira a configuração da sua conta e solicite ao administrador que verifique o perfil associado.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Confira a configuração da sua conta e solicite ao administrador que verifique o perfil associado."
+      },
+      "seconds": 1.0249680997803807,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 38
+    },
+    {
+      "id": "acesso-13-2",
+      "family": "acesso-13",
+      "prompt": "Estou com este problema: Tenho conta ativa, mas meu perfil não permite aprovar solicitações.",
+      "category": "acesso",
+      "action": "Peça ao gestor responsável que valide o perfil e solicite a permissão necessária.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Confira o status da sua conta e verifique se o perfil de aprovação está habilitado.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Confira o status da sua conta e verifique se o perfil de aprovação está habilitado."
+      },
+      "seconds": 0.9175684996880591,
+      "peak_vram_mb": 975.2294921875,
+      "input_tokens": 180,
+      "output_tokens": 37
+    },
+    {
+      "id": "acesso-13-3",
+      "family": "acesso-13",
+      "prompt": "Chamado para o suporte: Tenho conta ativa, mas meu perfil não permite aprovar solicitações.",
+      "category": "acesso",
+      "action": "Peça ao gestor responsável que valide o perfil e solicite a permissão necessária.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Confira o perfil do usuário e solicite ao suporte que o recurso seja avaliado primeiro.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Confira o perfil do usuário e solicite ao suporte que o recurso seja avaliado primeiro."
+      },
+      "seconds": 0.9202999002300203,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 36
+    },
+    {
+      "id": "acesso-13-4",
+      "family": "acesso-13",
+      "prompt": "Podem orientar o primeiro passo? Tenho conta ativa, mas meu perfil não permite aprovar solicitações.",
+      "category": "acesso",
+      "action": "Peça ao gestor responsável que valide o perfil e solicite a permissão necessária.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Confira a configuração da sua conta e solicite ao administrador que autorize as solicitações.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Confira a configuração da sua conta e solicite ao administrador que autorize as solicitações."
+      },
+      "seconds": 0.9223403995856643,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 38
+    },
+    {
+      "id": "acesso-14-0",
+      "family": "acesso-14",
+      "prompt": "Um funcionário desligado ainda consegue autenticar na conta corporativa.",
+      "category": "acesso",
+      "action": "Informe imediatamente o responsável pelas contas para revisar e revogar esse acesso.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Informe ao responsável pela segurança da empresa o status do funcionário.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Informe ao responsável pela segurança da empresa o status do funcionário."
+      },
+      "seconds": 0.7264175000600517,
+      "peak_vram_mb": 975.0615234375,
+      "input_tokens": 174,
+      "output_tokens": 28
+    },
+    {
+      "id": "acesso-14-1",
+      "family": "acesso-14",
+      "prompt": "Olá, preciso de ajuda: Um funcionário desligado ainda consegue autenticar na conta corporativa.",
+      "category": "acesso",
+      "action": "Informe imediatamente o responsável pelas contas para revisar e revogar esse acesso.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Informe ao responsável pela segurança da empresa que o funcionário está desligado.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Informe ao responsável pela segurança da empresa que o funcionário está desligado."
+      },
+      "seconds": 0.7899485002271831,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 31
+    },
+    {
+      "id": "acesso-14-2",
+      "family": "acesso-14",
+      "prompt": "Estou com este problema: Um funcionário desligado ainda consegue autenticar na conta corporativa.",
+      "category": "acesso",
+      "action": "Informe imediatamente o responsável pelas contas para revisar e revogar esse acesso.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Confira se o funcionário está ativo no sistema e se há algum procedimento para reconhecer o desconhecido.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Confira se o funcionário está ativo no sistema e se há algum procedimento para reconhecer o desconhecido."
+      },
+      "seconds": 1.0035953000187874,
+      "peak_vram_mb": 975.2294921875,
+      "input_tokens": 180,
+      "output_tokens": 41
+    },
+    {
+      "id": "acesso-14-3",
+      "family": "acesso-14",
+      "prompt": "Chamado para o suporte: Um funcionário desligado ainda consegue autenticar na conta corporativa.",
+      "category": "acesso",
+      "action": "Informe imediatamente o responsável pelas contas para revisar e revogar esse acesso.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Informe ao responsável pela segurança da conta que o funcionário está desligado.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Informe ao responsável pela segurança da conta que o funcionário está desligado."
+      },
+      "seconds": 0.7936661997810006,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 31
+    },
+    {
+      "id": "acesso-14-4",
+      "family": "acesso-14",
+      "prompt": "Podem orientar o primeiro passo? Um funcionário desligado ainda consegue autenticar na conta corporativa.",
+      "category": "acesso",
+      "action": "Informe imediatamente o responsável pelas contas para revisar e revogar esse acesso.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Confirme ao responsável pela segurança que o usuário está desligado.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Confirme ao responsável pela segurança que o usuário está desligado."
+      },
+      "seconds": 0.7587345000356436,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 30
+    },
+    {
+      "id": "acesso-15-0",
+      "family": "acesso-15",
+      "prompt": "O login corporativo diz que meu usuário pertence a uma organização diferente.",
+      "category": "acesso",
+      "action": "Confira o identificador da organização e peça ao suporte de contas a revisão do vínculo.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Informe ao responsável pelo sistema a sua nova organização e solicite a atualização do login.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Informe ao responsável pelo sistema a sua nova organização e solicite a atualização do login."
+      },
+      "seconds": 0.8784109996631742,
+      "peak_vram_mb": 975.04638671875,
+      "input_tokens": 173,
+      "output_tokens": 34
+    },
+    {
+      "id": "acesso-15-1",
+      "family": "acesso-15",
+      "prompt": "Olá, preciso de ajuda: O login corporativo diz que meu usuário pertence a uma organização diferente.",
+      "category": "acesso",
+      "action": "Confira o identificador da organização e peça ao suporte de contas a revisão do vínculo.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Informe ao responsável pelo sistema a sua nova organização e solicite a atualização do login.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Informe ao responsável pelo sistema a sua nova organização e solicite a atualização do login."
+      },
+      "seconds": 0.8397130998782814,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 34
+    },
+    {
+      "id": "acesso-15-2",
+      "family": "acesso-15",
+      "prompt": "Estou com este problema: O login corporativo diz que meu usuário pertence a uma organização diferente.",
+      "category": "acesso",
+      "action": "Confira o identificador da organização e peça ao suporte de contas a revisão do vínculo.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Confira se o usuário está vinculado ao mesmo sistema da organização responsável pelo login.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Confira se o usuário está vinculado ao mesmo sistema da organização responsável pelo login."
+      },
+      "seconds": 0.7966282996349037,
+      "peak_vram_mb": 975.21435546875,
+      "input_tokens": 179,
+      "output_tokens": 33
+    },
+    {
+      "id": "acesso-15-3",
+      "family": "acesso-15",
+      "prompt": "Chamado para o suporte: O login corporativo diz que meu usuário pertence a uma organização diferente.",
+      "category": "acesso",
+      "action": "Confira o identificador da organização e peça ao suporte de contas a revisão do vínculo.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Informe ao responsável pelo sistema a sua nova organização e solicite a atualização do login.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Informe ao responsável pelo sistema a sua nova organização e solicite a atualização do login."
+      },
+      "seconds": 0.8444312000647187,
+      "peak_vram_mb": 975.27099609375,
+      "input_tokens": 181,
+      "output_tokens": 34
+    },
+    {
+      "id": "acesso-15-4",
+      "family": "acesso-15",
+      "prompt": "Podem orientar o primeiro passo? O login corporativo diz que meu usuário pertence a uma organização diferente.",
+      "category": "acesso",
+      "action": "Confira o identificador da organização e peça ao suporte de contas a revisão do vínculo.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Informe ao responsável pelo sistema a natureza da solicitação e qual organização pertencente ao mesmo.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Informe ao responsável pelo sistema a natureza da solicitação e qual organização pertencente ao mesmo."
+      },
+      "seconds": 0.9801913998089731,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 37
+    },
+    {
+      "id": "rede-13-0",
+      "family": "rede-13",
+      "prompt": "A rede cabeada funciona, mas a rede sem fio inteira deste andar está indisponível.",
+      "category": "rede",
+      "action": "Informe ao suporte de rede que a falha afeta o Wi-Fi de todo o andar.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Confira a conexão da rede sem fio e solicite assistência ao responsável pela rede.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Confira a conexão da rede sem fio e solicite assistência ao responsável pela rede."
+      },
+      "seconds": 0.9052828000858426,
+      "peak_vram_mb": 975.21435546875,
+      "input_tokens": 179,
+      "output_tokens": 34
+    },
+    {
+      "id": "rede-13-1",
+      "family": "rede-13",
+      "prompt": "Olá, preciso de ajuda: A rede cabeada funciona, mas a rede sem fio inteira deste andar está indisponível.",
+      "category": "rede",
+      "action": "Informe ao suporte de rede que a falha afeta o Wi-Fi de todo o andar.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Confira se há algum problema na rede da rede sem fio e solicite instalação de rede.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Confira se há algum problema na rede da rede sem fio e solicite instalação de rede."
+      },
+      "seconds": 0.903706599958241,
+      "peak_vram_mb": 975.5673828125,
+      "input_tokens": 188,
+      "output_tokens": 36
+    },
+    {
+      "id": "rede-13-2",
+      "family": "rede-13",
+      "prompt": "Estou com este problema: A rede cabeada funciona, mas a rede sem fio inteira deste andar está indisponível.",
+      "category": "rede",
+      "action": "Informe ao suporte de rede que a falha afeta o Wi-Fi de todo o andar.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Confira se há algum problema na conexão da rede sem fio e solicite instalação de rede.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Confira se há algum problema na conexão da rede sem fio e solicite instalação de rede."
+      },
+      "seconds": 0.9343802002258599,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 37
+    },
+    {
+      "id": "rede-13-3",
+      "family": "rede-13",
+      "prompt": "Chamado para o suporte: A rede cabeada funciona, mas a rede sem fio inteira deste andar está indisponível.",
+      "category": "rede",
+      "action": "Informe ao suporte de rede que a falha afeta o Wi-Fi de todo o andar.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Confira se há problemas na rede sem fio e solicite atualização da rede.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Confira se há problemas na rede sem fio e solicite atualização da rede."
+      },
+      "seconds": 0.8404556000605226,
+      "peak_vram_mb": 975.53369140625,
+      "input_tokens": 187,
+      "output_tokens": 32
+    },
+    {
+      "id": "rede-13-4",
+      "family": "rede-13",
+      "prompt": "Podem orientar o primeiro passo? A rede cabeada funciona, mas a rede sem fio inteira deste andar está indisponível.",
+      "category": "rede",
+      "action": "Informe ao suporte de rede que a falha afeta o Wi-Fi de todo o andar.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Confira a conexão da rede sem fio e solicite ao responsável pela rede que verifique a rede inteira.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Confira a conexão da rede sem fio e solicite ao responsável pela rede que verifique a rede inteira."
+      },
+      "seconds": 0.9877851000055671,
+      "peak_vram_mb": 975.5673828125,
+      "input_tokens": 188,
+      "output_tokens": 39
+    },
+    {
+      "id": "rede-14-0",
+      "family": "rede-14",
+      "prompt": "A latência para o servidor interno sobe muito somente no horário de pico.",
+      "category": "rede",
+      "action": "Registre horários e valores de latência e encaminhe ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Anote a latência e solicite análise ao suporte da rede.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Anote a latência e solicite análise ao suporte da rede."
+      },
+      "seconds": 0.7384343999437988,
+      "peak_vram_mb": 975.15869140625,
+      "input_tokens": 177,
+      "output_tokens": 29
+    },
+    {
+      "id": "rede-14-1",
+      "family": "rede-14",
+      "prompt": "Olá, preciso de ajuda: A latência para o servidor interno sobe muito somente no horário de pico.",
+      "category": "rede",
+      "action": "Registre horários e valores de latência e encaminhe ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Informe ao responsável pelo sistema e solicite monitoramento da latência durante períodos de maior demanda.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Informe ao responsável pelo sistema e solicite monitoramento da latência durante períodos de maior demanda."
+      },
+      "seconds": 0.8719393000937998,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 35
+    },
+    {
+      "id": "rede-14-2",
+      "family": "rede-14",
+      "prompt": "Estou com este problema: A latência para o servidor interno sobe muito somente no horário de pico.",
+      "category": "rede",
+      "action": "Registre horários e valores de latência e encaminhe ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Verifique se há algum uso excessivo de recursos por hora na instalação do servidor.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Verifique se há algum uso excessivo de recursos por hora na instalação do servidor."
+      },
+      "seconds": 0.8144833999685943,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 33
+    },
+    {
+      "id": "rede-14-3",
+      "family": "rede-14",
+      "prompt": "Chamado para o suporte: A latência para o servidor interno sobe muito somente no horário de pico.",
+      "category": "rede",
+      "action": "Registre horários e valores de latência e encaminhe ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Verifique se há algum problema na conexão do servidor ao nível da rede.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Verifique se há algum problema na conexão do servidor ao nível da rede."
+      },
+      "seconds": 0.7532611000351608,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 30
+    },
+    {
+      "id": "rede-14-4",
+      "family": "rede-14",
+      "prompt": "Podem orientar o primeiro passo? A latência para o servidor interno sobe muito somente no horário de pico.",
+      "category": "rede",
+      "action": "Registre horários e valores de latência e encaminhe ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Informe ao responsável pelo ambiente o problema e solicite ajustes de velocidade.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Informe ao responsável pelo ambiente o problema e solicite ajustes de velocidade."
+      },
+      "seconds": 0.7772726998664439,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 30
+    },
+    {
+      "id": "rede-15-0",
+      "family": "rede-15",
+      "prompt": "O navegador informa falha de proxy em todos os sites da rede corporativa.",
+      "category": "rede",
+      "action": "Confira a configuração de proxy definida pela organização e informe a falha ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Confira se há problemas na configuração do proxy e solicite ao administrador.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Confira se há problemas na configuração do proxy e solicite ao administrador."
+      },
+      "seconds": 0.7946212999522686,
+      "peak_vram_mb": 975.0615234375,
+      "input_tokens": 174,
+      "output_tokens": 32
+    },
+    {
+      "id": "rede-15-1",
+      "family": "rede-15",
+      "prompt": "Olá, preciso de ajuda: O navegador informa falha de proxy em todos os sites da rede corporativa.",
+      "category": "rede",
+      "action": "Confira a configuração de proxy definida pela organização e informe a falha ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Confira se há algum problema na configuração do proxy no navegador.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Confira se há algum problema na configuração do proxy no navegador."
+      },
+      "seconds": 0.7369666998274624,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 29
+    },
+    {
+      "id": "rede-15-2",
+      "family": "rede-15",
+      "prompt": "Estou com este problema: O navegador informa falha de proxy em todos os sites da rede corporativa.",
+      "category": "rede",
+      "action": "Confira a configuração de proxy definida pela organização e informe a falha ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Confira se há algum erro na configuração do proxy no navegador.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Confira se há algum erro na configuração do proxy no navegador."
+      },
+      "seconds": 0.7486962000839412,
+      "peak_vram_mb": 975.2294921875,
+      "input_tokens": 180,
+      "output_tokens": 29
+    },
+    {
+      "id": "rede-15-3",
+      "family": "rede-15",
+      "prompt": "Chamado para o suporte: O navegador informa falha de proxy em todos os sites da rede corporativa.",
+      "category": "rede",
+      "action": "Confira a configuração de proxy definida pela organização e informe a falha ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Confira se o proxy está ativado e se há problemas na conexão ao servidor.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Confira se o proxy está ativado e se há problemas na conexão ao servidor."
+      },
+      "seconds": 0.7891957997344434,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 32
+    },
+    {
+      "id": "rede-15-4",
+      "family": "rede-15",
+      "prompt": "Podem orientar o primeiro passo? O navegador informa falha de proxy em todos os sites da rede corporativa.",
+      "category": "rede",
+      "action": "Confira a configuração de proxy definida pela organização e informe a falha ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Confira se o proxy está ativado no navegador e se há problemas na rede.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Confira se o proxy está ativado no navegador e se há problemas na rede."
+      },
+      "seconds": 0.7898197001777589,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 31
+    },
+    {
+      "id": "hardware-13-0",
+      "family": "hardware-13",
+      "prompt": "A webcam está com a lente fisicamente trincada.",
+      "category": "hardware",
+      "action": "Solicite avaliação ou substituição da webcam com a lente danificada.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Evite usar a webcam enquanto ela estiver desgastada e solicite a instalação de novo.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Evite usar a webcam enquanto ela estiver desgastada e solicite a instalação de novo."
+      },
+      "seconds": 0.9259612001478672,
+      "peak_vram_mb": 974.94921875,
+      "input_tokens": 170,
+      "output_tokens": 37
+    },
+    {
+      "id": "hardware-13-1",
+      "family": "hardware-13",
+      "prompt": "Olá, preciso de ajuda: A webcam está com a lente fisicamente trincada.",
+      "category": "hardware",
+      "action": "Solicite avaliação ou substituição da webcam com a lente danificada.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Informe o defeito físico da webcam e solicite a substituição da lente.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Informe o defeito físico da webcam e solicite a substituição da lente."
+      },
+      "seconds": 0.7736207996495068,
+      "peak_vram_mb": 975.21435546875,
+      "input_tokens": 179,
+      "output_tokens": 31
+    },
+    {
+      "id": "hardware-13-2",
+      "family": "hardware-13",
+      "prompt": "Estou com este problema: A webcam está com a lente fisicamente trincada.",
+      "category": "hardware",
+      "action": "Solicite avaliação ou substituição da webcam com a lente danificada.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Evite usar a webcam enquanto ela estiver fraca e solicite que a marca fixe a lente.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Evite usar a webcam enquanto ela estiver fraca e solicite que a marca fixe a lente."
+      },
+      "seconds": 0.9203735999763012,
+      "peak_vram_mb": 975.1171875,
+      "input_tokens": 176,
+      "output_tokens": 37
+    },
+    {
+      "id": "hardware-13-3",
+      "family": "hardware-13",
+      "prompt": "Chamado para o suporte: A webcam está com a lente fisicamente trincada.",
+      "category": "hardware",
+      "action": "Solicite avaliação ou substituição da webcam com a lente danificada.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Evite usar a webcam sem garantia e solicite reparação física.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Evite usar a webcam sem garantia e solicite reparação física."
+      },
+      "seconds": 0.7115244003944099,
+      "peak_vram_mb": 975.173828125,
+      "input_tokens": 178,
+      "output_tokens": 29
+    },
+    {
+      "id": "hardware-13-4",
+      "family": "hardware-13",
+      "prompt": "Podem orientar o primeiro passo? A webcam está com a lente fisicamente trincada.",
+      "category": "hardware",
+      "action": "Solicite avaliação ou substituição da webcam com a lente danificada.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Evite usar a webcam enquanto a lente estiver danificada.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Evite usar a webcam enquanto a lente estiver danificada."
+      },
+      "seconds": 0.7474535000510514,
+      "peak_vram_mb": 975.21435546875,
+      "input_tokens": 179,
+      "output_tokens": 29
+    },
+    {
+      "id": "hardware-14-0",
+      "family": "hardware-14",
+      "prompt": "Derramei líquido sobre o notebook e ele ainda está ligado.",
+      "category": "hardware",
+      "action": "Desligue o notebook, desconecte a energia com segurança e solicite avaliação técnica.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Evite usar o dispositivo e solicite a instalação de limpeza.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Evite usar o dispositivo e solicite a instalação de limpeza."
+      },
+      "seconds": 0.8082575001753867,
+      "peak_vram_mb": 975.0615234375,
+      "input_tokens": 174,
+      "output_tokens": 32
+    },
+    {
+      "id": "hardware-14-1",
+      "family": "hardware-14",
+      "prompt": "Olá, preciso de ajuda: Derramei líquido sobre o notebook e ele ainda está ligado.",
+      "category": "hardware",
+      "action": "Desligue o notebook, desconecte a energia com segurança e solicite avaliação técnica.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Informe ao fornecedor da equipamento que ocorreu o derramamento.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Informe ao fornecedor da equipamento que ocorreu o derramamento."
+      },
+      "seconds": 0.7746943002566695,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 31
+    },
+    {
+      "id": "hardware-14-2",
+      "family": "hardware-14",
+      "prompt": "Estou com este problema: Derramei líquido sobre o notebook e ele ainda está ligado.",
+      "category": "hardware",
+      "action": "Desligue o notebook, desconecte a energia com segurança e solicite avaliação técnica.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Confira se há algum derramamento de água no computador e solicite assistência técnica.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Confira se há algum derramamento de água no computador e solicite assistência técnica."
+      },
+      "seconds": 0.8854311001487076,
+      "peak_vram_mb": 975.2294921875,
+      "input_tokens": 180,
+      "output_tokens": 36
+    },
+    {
+      "id": "hardware-14-3",
+      "family": "hardware-14",
+      "prompt": "Chamado para o suporte: Derramei líquido sobre o notebook e ele ainda está ligado.",
+      "category": "hardware",
+      "action": "Desligue o notebook, desconecte a energia com segurança e solicite avaliação técnica.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Evite usar o dispositivo e solicite reparação ao suporte.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Evite usar o dispositivo e solicite reparação ao suporte."
+      },
+      "seconds": 0.7176834000274539,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 29
+    },
+    {
+      "id": "hardware-14-4",
+      "family": "hardware-14",
+      "prompt": "Podem orientar o primeiro passo? Derramei líquido sobre o notebook e ele ainda está ligado.",
+      "category": "hardware",
+      "action": "Desligue o notebook, desconecte a energia com segurança e solicite avaliação técnica.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Imprima o que ocorreu e solicite ao suporte técnico a análise da fonte do problema.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Imprima o que ocorreu e solicite ao suporte técnico a análise da fonte do problema."
+      },
+      "seconds": 0.9523101998493075,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 37
+    },
+    {
+      "id": "hardware-15-0",
+      "family": "hardware-15",
+      "prompt": "O conector de energia do notebook está quebrado.",
+      "category": "hardware",
+      "action": "Evite forçar o conector e solicite reparo técnico antes de carregar o equipamento.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Imprima o status do conector e solicite substituição.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Imprima o status do conector e solicite substituição."
+      },
+      "seconds": 0.6989074000157416,
+      "peak_vram_mb": 974.93408203125,
+      "input_tokens": 169,
+      "output_tokens": 28
+    },
+    {
+      "id": "hardware-15-1",
+      "family": "hardware-15",
+      "prompt": "Olá, preciso de ajuda: O conector de energia do notebook está quebrado.",
+      "category": "hardware",
+      "action": "Evite forçar o conector e solicite reparo técnico antes de carregar o equipamento.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Informe ao fornecedor o problema e solicite substituição do conector.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Informe ao fornecedor o problema e solicite substituição do conector."
+      },
+      "seconds": 0.7195322001352906,
+      "peak_vram_mb": 975.173828125,
+      "input_tokens": 178,
+      "output_tokens": 29
+    },
+    {
+      "id": "hardware-15-2",
+      "family": "hardware-15",
+      "prompt": "Estou com este problema: O conector de energia do notebook está quebrado.",
+      "category": "hardware",
+      "action": "Evite forçar o conector e solicite reparo técnico antes de carregar o equipamento.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Evite usar o dispositivo sem verificar a cor do conector.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Evite usar o dispositivo sem verificar a cor do conector."
+      },
+      "seconds": 0.6877680001780391,
+      "peak_vram_mb": 975.10205078125,
+      "input_tokens": 175,
+      "output_tokens": 27
+    },
+    {
+      "id": "hardware-15-3",
+      "family": "hardware-15",
+      "prompt": "Chamado para o suporte: O conector de energia do notebook está quebrado.",
+      "category": "hardware",
+      "action": "Evite forçar o conector e solicite reparo técnico antes de carregar o equipamento.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Evite usar o dispositivo sem verificar a qualidade do conector.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Evite usar o dispositivo sem verificar a qualidade do conector."
+      },
+      "seconds": 0.6595239997841418,
+      "peak_vram_mb": 975.15869140625,
+      "input_tokens": 177,
+      "output_tokens": 27
+    },
+    {
+      "id": "hardware-15-4",
+      "family": "hardware-15",
+      "prompt": "Podem orientar o primeiro passo? O conector de energia do notebook está quebrado.",
+      "category": "hardware",
+      "action": "Evite forçar o conector e solicite reparo técnico antes de carregar o equipamento.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Informe ao fornecedor o problema e solicite substituição do conector.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Informe ao fornecedor o problema e solicite substituição do conector."
+      },
+      "seconds": 0.7340072998777032,
+      "peak_vram_mb": 975.173828125,
+      "input_tokens": 178,
+      "output_tokens": 29
+    },
+    {
+      "id": "software-13-0",
+      "family": "software-13",
+      "prompt": "O aplicativo de estoque apresenta uma exceção ao gerar o relatório mensal.",
+      "category": "software",
+      "action": "Registre a mensagem da exceção e os passos para reproduzir a falha no relatório.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Confira o log do aplicativo e verifique se há algum erro relacionado ao gerenciamento de dados.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Confira o log do aplicativo e verifique se há algum erro relacionado ao gerenciamento de dados."
+      },
+      "seconds": 0.945896899793297,
+      "peak_vram_mb": 975.15869140625,
+      "input_tokens": 177,
+      "output_tokens": 37
+    },
+    {
+      "id": "software-13-1",
+      "family": "software-13",
+      "prompt": "Olá, preciso de ajuda: O aplicativo de estoque apresenta uma exceção ao gerar o relatório mensal.",
+      "category": "software",
+      "action": "Registre a mensagem da exceção e os passos para reproduzir a falha no relatório.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe o erro ao instalar o aplicativo e solicite atualização.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe o erro ao instalar o aplicativo e solicite atualização."
+      },
+      "seconds": 0.7232846999540925,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 29
+    },
+    {
+      "id": "software-13-2",
+      "family": "software-13",
+      "prompt": "Estou com este problema: O aplicativo de estoque apresenta uma exceção ao gerar o relatório mensal.",
+      "category": "software",
+      "action": "Registre a mensagem da exceção e os passos para reproduzir a falha no relatório.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Confira o log do aplicativo e verifique se há algum erro relacionado ao gerenciamento de dados.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Confira o log do aplicativo e verifique se há algum erro relacionado ao gerenciamento de dados."
+      },
+      "seconds": 0.9328820998780429,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 37
+    },
+    {
+      "id": "software-13-3",
+      "family": "software-13",
+      "prompt": "Chamado para o suporte: O aplicativo de estoque apresenta uma exceção ao gerar o relatório mensal.",
+      "category": "software",
+      "action": "Registre a mensagem da exceção e os passos para reproduzir a falha no relatório.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Confira o log do aplicativo e verifique se há algum erro relacionado ao gerenciamento de dados.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Confira o log do aplicativo e verifique se há algum erro relacionado ao gerenciamento de dados."
+      },
+      "seconds": 0.916675599757582,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 37
+    },
+    {
+      "id": "software-13-4",
+      "family": "software-13",
+      "prompt": "Podem orientar o primeiro passo? O aplicativo de estoque apresenta uma exceção ao gerar o relatório mensal.",
+      "category": "software",
+      "action": "Registre a mensagem da exceção e os passos para reproduzir a falha no relatório.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Confira o log do aplicativo e verifique se há algum erro relacionado à criação do relatório.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Confira o log do aplicativo e verifique se há algum erro relacionado à criação do relatório."
+      },
+      "seconds": 0.9327470003627241,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 37
+    },
+    {
+      "id": "software-14-0",
+      "family": "software-14",
+      "prompt": "O programa de videoconferência deixou de reconhecer a câmera após atualizar, mas outros programas a reconhecem.",
+      "category": "software",
+      "action": "Confira as configurações de câmera do aplicativo e registre a versão atualizada para o suporte.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe ao desenvolvedor o problema e solicite a atualização do recurso.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe ao desenvolvedor o problema e solicite a atualização do recurso."
+      },
+      "seconds": 0.7806478999555111,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 31
+    },
+    {
+      "id": "software-14-1",
+      "family": "software-14",
+      "prompt": "Olá, preciso de ajuda: O programa de videoconferência deixou de reconhecer a câmera após atualizar, mas outros programas a reconhecem.",
+      "category": "software",
+      "action": "Confira as configurações de câmera do aplicativo e registre a versão atualizada para o suporte.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe ao desenvolvedor o problema e solicite a atualização do recurso.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe ao desenvolvedor o problema e solicite a atualização do recurso."
+      },
+      "seconds": 0.8041890002787113,
+      "peak_vram_mb": 975.9091796875,
+      "input_tokens": 195,
+      "output_tokens": 31
+    },
+    {
+      "id": "software-14-2",
+      "family": "software-14",
+      "prompt": "Estou com este problema: O programa de videoconferência deixou de reconhecer a câmera após atualizar, mas outros programas a reconhecem.",
+      "category": "software",
+      "action": "Confira as configurações de câmera do aplicativo e registre a versão atualizada para o suporte.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Verifique se a câmera está associada ao mesmo usuário que o programa de videoconferência.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Verifique se a câmera está associada ao mesmo usuário que o programa de videoconferência."
+      },
+      "seconds": 0.9092341000214219,
+      "peak_vram_mb": 975.75390625,
+      "input_tokens": 192,
+      "output_tokens": 36
+    },
+    {
+      "id": "software-14-3",
+      "family": "software-14",
+      "prompt": "Chamado para o suporte: O programa de videoconferência deixou de reconhecer a câmera após atualizar, mas outros programas a reconhecem.",
+      "category": "software",
+      "action": "Confira as configurações de câmera do aplicativo e registre a versão atualizada para o suporte.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe ao desenvolvedor que a câmera foi excluída e solicite a instalação de nova câmera.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe ao desenvolvedor que a câmera foi excluída e solicite a instalação de nova câmera."
+      },
+      "seconds": 1.034022900275886,
+      "peak_vram_mb": 975.85009765625,
+      "input_tokens": 194,
+      "output_tokens": 41
+    },
+    {
+      "id": "software-14-4",
+      "family": "software-14",
+      "prompt": "Podem orientar o primeiro passo? O programa de videoconferência deixou de reconhecer a câmera após atualizar, mas outros programas a reconhecem.",
+      "category": "software",
+      "action": "Confira as configurações de câmera do aplicativo e registre a versão atualizada para o suporte.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe ao fornecedor da câmera qual é o problema e solicite a atualização do software.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe ao fornecedor da câmera qual é o problema e solicite a atualização do software."
+      },
+      "seconds": 0.9116199999116361,
+      "peak_vram_mb": 975.9091796875,
+      "input_tokens": 195,
+      "output_tokens": 35
+    },
+    {
+      "id": "software-15-0",
+      "family": "software-15",
+      "prompt": "O visualizador de PDF mostra páginas em branco em um arquivo que abre normalmente em outro visualizador.",
+      "category": "software",
+      "action": "Confira a versão do visualizador e teste outro arquivo para delimitar a falha do aplicativo.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe qual aplicativo está sendo usado para visualizar os PDFs.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe qual aplicativo está sendo usado para visualizar os PDFs."
+      },
+      "seconds": 0.6864110003225505,
+      "peak_vram_mb": 975.2294921875,
+      "input_tokens": 180,
+      "output_tokens": 28
+    },
+    {
+      "id": "software-15-1",
+      "family": "software-15",
+      "prompt": "Olá, preciso de ajuda: O visualizador de PDF mostra páginas em branco em um arquivo que abre normalmente em outro visualizador.",
+      "category": "software",
+      "action": "Confira a versão do visualizador e teste outro arquivo para delimitar a falha do aplicativo.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe qual visualizador está apresentando páginas brancas e qual é o nome do arquivo.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe qual visualizador está apresentando páginas brancas e qual é o nome do arquivo."
+      },
+      "seconds": 0.8491048999130726,
+      "peak_vram_mb": 975.62744140625,
+      "input_tokens": 189,
+      "output_tokens": 34
+    },
+    {
+      "id": "software-15-2",
+      "family": "software-15",
+      "prompt": "Estou com este problema: O visualizador de PDF mostra páginas em branco em um arquivo que abre normalmente em outro visualizador.",
+      "category": "software",
+      "action": "Confira a versão do visualizador e teste outro arquivo para delimitar a falha do aplicativo.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe qual aplicativo está apresentando páginas brancas ao visualizar PDF.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe qual aplicativo está apresentando páginas brancas ao visualizar PDF."
+      },
+      "seconds": 0.7676905002444983,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 31
+    },
+    {
+      "id": "software-15-3",
+      "family": "software-15",
+      "prompt": "Chamado para o suporte: O visualizador de PDF mostra páginas em branco em um arquivo que abre normalmente em outro visualizador.",
+      "category": "software",
+      "action": "Confira a versão do visualizador e teste outro arquivo para delimitar a falha do aplicativo.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe qual visualizador está apresentando páginas brancas e qual o arquivo aberto.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe qual visualizador está apresentando páginas brancas e qual o arquivo aberto."
+      },
+      "seconds": 0.8607351002283394,
+      "peak_vram_mb": 975.5673828125,
+      "input_tokens": 188,
+      "output_tokens": 33
+    },
+    {
+      "id": "software-15-4",
+      "family": "software-15",
+      "prompt": "Podem orientar o primeiro passo? O visualizador de PDF mostra páginas em branco em um arquivo que abre normalmente em outro visualizador.",
+      "category": "software",
+      "action": "Confira a versão do visualizador e teste outro arquivo para delimitar a falha do aplicativo.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe ao responsável pelo visualizador de PDF qual página está sem conteúdo e solicite a atualização do arquivo.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe ao responsável pelo visualizador de PDF qual página está sem conteúdo e solicite a atualização do arquivo."
+      },
+      "seconds": 0.9271678999066353,
+      "peak_vram_mb": 975.62744140625,
+      "input_tokens": 189,
+      "output_tokens": 36
+    },
+    {
+      "id": "outros-13-0",
+      "family": "outros-13",
+      "prompt": "Quero organizar uma festa de aniversário no escritório.",
+      "category": "outros",
+      "action": "Consulte a equipe responsável pelos eventos e regras de uso do espaço.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Anote as regras de organização da festa e solicite ao responsável pela rede que os detalhes sejam implementados.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Anote as regras de organização da festa e solicite ao responsável pela rede que os detalhes sejam implementados."
+      },
+      "seconds": 1.0431106998585165,
+      "peak_vram_mb": 975.0048828125,
+      "input_tokens": 172,
+      "output_tokens": 42
+    },
+    {
+      "id": "outros-13-1",
+      "family": "outros-13",
+      "prompt": "Olá, preciso de ajuda: Quero organizar uma festa de aniversário no escritório.",
+      "category": "outros",
+      "action": "Consulte a equipe responsável pelos eventos e regras de uso do espaço.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Informe ao responsável pela organização da festa qual deseja que seja realizada e qual será o local.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Informe ao responsável pela organização da festa qual deseja que seja realizada e qual será o local."
+      },
+      "seconds": 0.9052514997310936,
+      "peak_vram_mb": 975.27099609375,
+      "input_tokens": 181,
+      "output_tokens": 36
+    },
+    {
+      "id": "outros-13-2",
+      "family": "outros-13",
+      "prompt": "Estou com este problema: Quero organizar uma festa de aniversário no escritório.",
+      "category": "outros",
+      "action": "Consulte a equipe responsável pelos eventos e regras de uso do espaço.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Informe ao responsável pela organização da festa qual deseja que seja realizada e qual será o local.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Informe ao responsável pela organização da festa qual deseja que seja realizada e qual será o local."
+      },
+      "seconds": 0.9025183999910951,
+      "peak_vram_mb": 975.173828125,
+      "input_tokens": 178,
+      "output_tokens": 36
+    },
+    {
+      "id": "outros-13-3",
+      "family": "outros-13",
+      "prompt": "Chamado para o suporte: Quero organizar uma festa de aniversário no escritório.",
+      "category": "outros",
+      "action": "Consulte a equipe responsável pelos eventos e regras de uso do espaço.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Informe ao administrador da área que deseja organizar uma festa de aniversário e solicite orientação sobre organização e segurança.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Informe ao administrador da área que deseja organizar uma festa de aniversário e solicite orientação sobre organização e segurança."
+      },
+      "seconds": 1.1199174001812935,
+      "peak_vram_mb": 975.2294921875,
+      "input_tokens": 180,
+      "output_tokens": 43
+    },
+    {
+      "id": "outros-13-4",
+      "family": "outros-13",
+      "prompt": "Podem orientar o primeiro passo? Quero organizar uma festa de aniversário no escritório.",
+      "category": "outros",
+      "action": "Consulte a equipe responsável pelos eventos e regras de uso do espaço.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Informe ao administrador da área o seu plano de organização e solicite instruções sobre como iniciar.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Informe ao administrador da área o seu plano de organização e solicite instruções sobre como iniciar."
+      },
+      "seconds": 0.9076442001387477,
+      "peak_vram_mb": 975.27099609375,
+      "input_tokens": 181,
+      "output_tokens": 36
+    },
+    {
+      "id": "outros-14-0",
+      "family": "outros-14",
+      "prompt": "Aconteceu uma coisa no computador, mas não sei dizer o que mudou.",
+      "category": "outros",
+      "action": "Descreva a tarefa realizada e o que apareceu na tela.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Informe o que ocorreu ao administrador.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Informe o que ocorreu ao administrador."
+      },
+      "seconds": 0.6070185997523367,
+      "peak_vram_mb": 975.1171875,
+      "input_tokens": 176,
+      "output_tokens": 24
+    },
+    {
+      "id": "outros-14-1",
+      "family": "outros-14",
+      "prompt": "Olá, preciso de ajuda: Aconteceu uma coisa no computador, mas não sei dizer o que mudou.",
+      "category": "outros",
+      "action": "Descreva a tarefa realizada e o que apareceu na tela.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Informe o que ocorreu ao suporte técnico.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Informe o que ocorreu ao suporte técnico."
+      },
+      "seconds": 0.6218816000036895,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 25
+    },
+    {
+      "id": "outros-14-2",
+      "family": "outros-14",
+      "prompt": "Estou com este problema: Aconteceu uma coisa no computador, mas não sei dizer o que mudou.",
+      "category": "outros",
+      "action": "Descreva a tarefa realizada e o que apareceu na tela.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Informe o que ocorreu ao suporte.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Informe o que ocorreu ao suporte."
+      },
+      "seconds": 0.6162940002977848,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 24
+    },
+    {
+      "id": "outros-14-3",
+      "family": "outros-14",
+      "prompt": "Chamado para o suporte: Aconteceu uma coisa no computador, mas não sei dizer o que mudou.",
+      "category": "outros",
+      "action": "Descreva a tarefa realizada e o que apareceu na tela.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Informe o que ocorreu ao suporte.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Informe o que ocorreu ao suporte."
+      },
+      "seconds": 0.6178556000813842,
+      "peak_vram_mb": 975.380859375,
+      "input_tokens": 184,
+      "output_tokens": 24
+    },
+    {
+      "id": "outros-14-4",
+      "family": "outros-14",
+      "prompt": "Podem orientar o primeiro passo? Aconteceu uma coisa no computador, mas não sei dizer o que mudou.",
+      "category": "outros",
+      "action": "Descreva a tarefa realizada e o que apareceu na tela.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Informe o deficiente ao responsável pelo sistema.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Informe o deficiente ao responsável pelo sistema."
+      },
+      "seconds": 0.6007781000807881,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 24
+    },
+    {
+      "id": "outros-15-0",
+      "family": "outros-15",
+      "prompt": "A VPN falha e a tela rachou; não defini qual preciso resolver primeiro.",
+      "category": "outros",
+      "action": "Informe qual problema impede a tarefa principal para orientar a prioridade do atendimento.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Confira a mensagem de erro e verifique a conexão da VPN.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Confira a mensagem de erro e verifique a conexão da VPN."
+      },
+      "seconds": 0.7363566998392344,
+      "peak_vram_mb": 975.15869140625,
+      "input_tokens": 177,
+      "output_tokens": 29
+    },
+    {
+      "id": "outros-15-1",
+      "family": "outros-15",
+      "prompt": "Olá, preciso de ajuda: A VPN falha e a tela rachou; não defini qual preciso resolver primeiro.",
+      "category": "outros",
+      "action": "Informe qual problema impede a tarefa principal para orientar a prioridade do atendimento.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe qual aplicativo falha e qual dispositivo é mais afetado.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe qual aplicativo falha e qual dispositivo é mais afetado."
+      },
+      "seconds": 0.7109244000166655,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 29
+    },
+    {
+      "id": "outros-15-2",
+      "family": "outros-15",
+      "prompt": "Estou com este problema: A VPN falha e a tela rachou; não defini qual preciso resolver primeiro.",
+      "category": "outros",
+      "action": "Informe qual problema impede a tarefa principal para orientar a prioridade do atendimento.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Confira a configuração da VPN e solicite ao suporte de serviços.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Confira a configuração da VPN e solicite ao suporte de serviços."
+      },
+      "seconds": 0.7876711999997497,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 31
+    },
+    {
+      "id": "outros-15-3",
+      "family": "outros-15",
+      "prompt": "Chamado para o suporte: A VPN falha e a tela rachou; não defini qual preciso resolver primeiro.",
+      "category": "outros",
+      "action": "Informe qual problema impede a tarefa principal para orientar a prioridade do atendimento.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe o defensor da VPN e o problema ao qual está se referindo.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe o defensor da VPN e o problema ao qual está se referindo."
+      },
+      "seconds": 0.7807650999166071,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 30
+    },
+    {
+      "id": "outros-15-4",
+      "family": "outros-15",
+      "prompt": "Podem orientar o primeiro passo? A VPN falha e a tela rachou; não defini qual preciso resolver primeiro.",
+      "category": "outros",
+      "action": "Informe qual problema impede a tarefa principal para orientar a prioridade do atendimento.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Informe qual recurso falhou primeiro ao suporte da VPN.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Informe qual recurso falhou primeiro ao suporte da VPN."
+      },
+      "seconds": 0.6872013998217881,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 27
+    }
+  ],
+  "latency_note": "Batch 1, aquecimento excluído, CUDA sincronizada. Tempo da geração; exclui seed, tokenização, decode, download e carregamento."
+}

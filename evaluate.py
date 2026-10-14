@@ -36,7 +36,7 @@ def evaluate(adapter=None, split='validation', temperature=0, name='original'):
                    mean_output_tokens=statistics.mean(r['output_tokens'] for r in predictions))
     report = {'name': name, 'split': split, 'temperature': temperature, 'identity': identity,
               'metrics': metrics, 'rows': predictions,
-              'latency_note': 'Batch 1, aquecimento excluído, CUDA sincronizada, inclui geração e seed; sem download/carregamento.'}
+              'latency_note': 'Batch 1, aquecimento excluído, CUDA sincronizada. Tempo da geração; exclui seed, tokenização, decode, download e carregamento.'}
     write_json(output, report)
     print(f'{name}: accuracy={metrics["accuracy"]:.3f}, JSON={metrics["json_valid_rate"]:.3f}', flush=True)
     return report

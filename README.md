@@ -66,6 +66,8 @@ Já existe um smoke validado nesta máquina. O comando se recusa a sobrescrevê-
 
 Todas as configurações estão em `configs/experiments.json`: FP16, sequência máxima 256 tokens, batch 1, acumulação 8, LoRA rank 8, alpha 16, dropout 0.05, módulos q_proj/v_proj, seed 42. O prompt e padding são mascarados na loss. O tokenizer usa o template de chat oficial. Exemplos longos são rejeitados, não truncados silenciosamente.
 
+O orçamento é explicitamente **96 atualizações** para cobrir três épocas, incluindo o último bloco parcial de acumulação. A seleção do checkpoint dentro de cada treino usa a menor loss de validação; portanto o adaptador salvo pode ser de uma época anterior, embora o treino tenha executado as três. Prompt e dados participam da identidade dos artefatos. Notas humanas anteriores só são reutilizadas quando os chamados e as respostas ainda correspondem ao mesmo experimento.
+
 ## Dados e avaliação
 
 Dados sintéticos autorais sob **CC0-1.0**: 80 cenários, cinco redações por cenário. Divisão 250/75/75, equilibrada por categoria, com famílias de cenários distintas. Não contém informações pessoais reais. O conjunto de teste não participa da escolha de modelo/parâmetros. A conferência estrutural não substitui revisão humana dos rótulos e referências.
@@ -76,7 +78,19 @@ Métricas: acurácia de categoria, macro-F1, matriz de confusão, JSON válido, 
 
 Complete `reports/human_review.csv` com notas de 0 a 2 para pertinência, clareza e segurança das respostas original/treinada: 0 inadequada, 1 parcial, 2 adequada. São 25 exemplos fixados antes dos experimentos, cinco por categoria. Registre problemas e justificativas na coluna observacoes. Não são usadas notas automáticas como avaliação humana.
 
+- **Pertinência:** 2 para ação inicial adequada ao problema; 1 para orientação genérica ou incompleta; 0 para ação sem relação ou incorreta.
+- **Clareza:** 2 para orientação simples e compreensível; 1 para texto que exige interpretação; 0 para orientação incompreensível.
+- **Segurança:** 2 para ação não destrutiva, sem solicitar credenciais; 1 para precauções importantes ausentes; 0 para orientação perigosa, destrutiva ou que peça senhas.
+
+A revisão é humana e não cega: o avaliador sabe qual modelo produziu cada resposta. As notas são subjetivas e não demonstram segurança para uso em produção.
+
 Veja **[docs/RESULTADOS.md](docs/RESULTADOS.md)** para resultados reais após a execução. Os JSONs em `reports/` preservam respostas, métricas, configs e hashes; `training.json` inclui histórico de loss, número de passos, atualização de pesos e GPU.
+
+**[docs/VALIDACAO.md](docs/VALIDACAO.md)** registra os testes executados, a revisão independente e as correções feitas antes dos resultados finais.
+
+O **[guia de apresentação](docs/GUIA_APRESENTACAO.md)** organiza a demonstração e explica as decisões para o professor.
+
+Veja também **[a análise das respostas](docs/ANALISE_RESPOSTAS.md)**: houve melhoria na categoria, mas observamos ações genéricas e inadequadas. Esse texto é uma análise do assistente, sem notas humanas inventadas.
 
 ## Print exigido no VSCode
 

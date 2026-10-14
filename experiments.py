@@ -52,6 +52,9 @@ def write_report(baseline, runs, generation, selection, original, trained):
     lines = ['# Resultados reais — CP5', '',
              f"GPU: {runs[0]['training']['gpu']}. Modelo: {CONFIG['model_id']}.",
              f"Revisão: `{CONFIG['revision']}`. Seed: {CONFIG['seed']}.", '',
+             f"Parâmetros totais (incluindo adaptadores): {runs[0]['training']['parameters']['total']:,}; "
+             f"treináveis: {runs[0]['training']['parameters']['trainable']:,}. "
+             'Todos os três treinos completam três épocas/96 atualizações; o checkpoint salvo usa menor loss de validação.', '',
              '## Validação — treinamento', '',
              '| Modelo | Learning rate | Acurácia | JSON válido | Loss validação | Tempo treino (s) | VRAM treino (MiB) |',
              '|---|---:|---:|---:|---:|---:|---:|',
@@ -96,11 +99,13 @@ def write_report(baseline, runs, generation, selection, original, trained):
         'mas apenas 15 cenários independentes em cada conjunto de avaliação. '
         'As 75 respostas não são 75 cenários independentes. Não extrapolar a acurácia para chamados reais.',
         '', 'Uma única seed de treinamento e de amostragem: a comparação de temperaturas não mede estabilidade '
-        'entre múltiplas seeds. Latência varia com comprimento da resposta, temperatura da GPU e programas concorrentes.',
+        'entre múltiplas seeds. Latência mede a chamada de geração com sincronização CUDA, excluindo '
+        'tokenização, seed, decode e carregamento; varia com comprimento da resposta, temperatura da GPU e programas concorrentes.',
         '', 'Pendente: usuário revisar referências/rótulos e preencher reports/human_review.csv '
         '(25 linhas; pertinência, clareza e segurança de 0 a 2 para cada modelo). '
         '0 = inadequado; 1 = parcialmente adequado; 2 = adequado. Notas humanas não foram inventadas.',
-        '', 'Pendente: print real no VSCode e publicação no GitHub no destino definido pelo usuário.', ''])
+        '', 'Print real da GPU no VSCode: evidence/gpu-vscode.png; notebook executado em evidence/gpu-vscode.ipynb.',
+        '', 'Pendente: publicação no GitHub no destino definido pelo usuário.', ''])
     (ROOT / 'docs/RESULTADOS.md').write_text('\n'.join(lines), encoding='utf-8')
 
 
@@ -128,7 +133,7 @@ def main():
     adapter = ROOT / f'artifacts/{best["name"]}'
     generation = [evaluate(adapter, temperature=temp, name=best['name']) for temp in CONFIG['temperatures']]
     selected_generation = choose_generation(generation)
-    selection = {'name': best['name'], 'adapter': str(adapter.relative_to(ROOT)),
+    selection = {'name': best['name'], 'adapter': adapter.relative_to(ROOT).as_posix(),
                  'temperature': selected_generation['temperature'], 'config': CONFIG,
                  'data_sha256': best['training']['data_sha256'],
                  'adapter_sha256': file_hash(adapter / 'adapter_model.safetensors'),

@@ -1,0 +1,1289 @@
+{
+  "name": "lr-0.0001",
+  "split": "validation",
+  "temperature": 0,
+  "identity": {
+    "config": {
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "seed": 42,
+      "max_length": 256,
+      "max_new_tokens": 96,
+      "epochs": 3,
+      "batch_size": 1,
+      "gradient_accumulation_steps": 8,
+      "lora_r": 8,
+      "lora_alpha": 16,
+      "lora_dropout": 0.05,
+      "learning_rates": [
+        5e-05,
+        0.0001,
+        0.0002
+      ],
+      "temperatures": [
+        0,
+        0.3,
+        0.7
+      ],
+      "top_p": 0.9
+    },
+    "data_sha256": "308991e6813db4e0059978e9380a9d8b1524dd2ec464eb331e881b2da44ba8dd",
+    "adapter_sha256": "3d74f3f9bd77bf262b04b4d5051971902f9071b8e1c4fb1a0cc329f819f2c7dd",
+    "prompt_sha256": "6dcf96bd1f224118df00099ae592d06bae880e02dbce5f888b5aa2e73937ee49"
+  },
+  "metrics": {
+    "n": 75,
+    "accuracy": 0.72,
+    "macro_f1": 0.7306397306397306,
+    "json_valid_rate": 1.0,
+    "confusion_matrix": {
+      "acesso": {
+        "acesso": 10,
+        "rede": 0,
+        "hardware": 0,
+        "software": 0,
+        "outros": 5,
+        "invalido": 0
+      },
+      "rede": {
+        "acesso": 0,
+        "rede": 10,
+        "hardware": 0,
+        "software": 5,
+        "outros": 0,
+        "invalido": 0
+      },
+      "hardware": {
+        "acesso": 0,
+        "rede": 0,
+        "hardware": 12,
+        "software": 0,
+        "outros": 3,
+        "invalido": 0
+      },
+      "software": {
+        "acesso": 0,
+        "rede": 0,
+        "hardware": 0,
+        "software": 12,
+        "outros": 3,
+        "invalido": 0
+      },
+      "outros": {
+        "acesso": 2,
+        "rede": 2,
+        "hardware": 0,
+        "software": 1,
+        "outros": 10,
+        "invalido": 0
+      }
+    },
+    "mean_seconds": 0.8029119040320317,
+    "median_seconds": 0.7885216004215181,
+    "peak_vram_mb": 975.474609375,
+    "mean_output_tokens": 32.06666666666667
+  },
+  "rows": [
+    {
+      "id": "acesso-10-0",
+      "family": "acesso-10",
+      "prompt": "Troquei meu nome de usuário e o sistema de login não reconhece o novo nome.",
+      "category": "acesso",
+      "action": "Confirme com o suporte de contas qual identificador está ativo para o seu cadastro.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Escolha um novo nome de usuário para o sistema de login.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Escolha um novo nome de usuário para o sistema de login."
+      },
+      "seconds": 0.7461991999298334,
+      "peak_vram_mb": 975.15869140625,
+      "input_tokens": 177,
+      "output_tokens": 29
+    },
+    {
+      "id": "acesso-10-1",
+      "family": "acesso-10",
+      "prompt": "Olá, preciso de ajuda: Troquei meu nome de usuário e o sistema de login não reconhece o novo nome.",
+      "category": "acesso",
+      "action": "Confirme com o suporte de contas qual identificador está ativo para o seu cadastro.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Escolha um novo nome para seu usuário e tente novamente.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Escolha um novo nome para seu usuário e tente novamente."
+      },
+      "seconds": 0.7664089999161661,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 29
+    },
+    {
+      "id": "acesso-10-2",
+      "family": "acesso-10",
+      "prompt": "Estou com este problema: Troquei meu nome de usuário e o sistema de login não reconhece o novo nome.",
+      "category": "acesso",
+      "action": "Confirme com o suporte de contas qual identificador está ativo para o seu cadastro.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Escolha um novo nome de usuário para o sistema de login.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Escolha um novo nome de usuário para o sistema de login."
+      },
+      "seconds": 0.729994900058955,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 29
+    },
+    {
+      "id": "acesso-10-3",
+      "family": "acesso-10",
+      "prompt": "Chamado para o suporte: Troquei meu nome de usuário e o sistema de login não reconhece o novo nome.",
+      "category": "acesso",
+      "action": "Confirme com o suporte de contas qual identificador está ativo para o seu cadastro.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Esclareça ao cliente que o nome de usuário foi alterado e solicite a atualização do sistema de login.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Esclareça ao cliente que o nome de usuário foi alterado e solicite a atualização do sistema de login."
+      },
+      "seconds": 0.9666710002347827,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 39
+    },
+    {
+      "id": "acesso-10-4",
+      "family": "acesso-10",
+      "prompt": "Podem orientar o primeiro passo? Troquei meu nome de usuário e o sistema de login não reconhece o novo nome.",
+      "category": "acesso",
+      "action": "Confirme com o suporte de contas qual identificador está ativo para o seu cadastro.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Escolha novamente seu nome de usuário para tentar novamente.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Escolha novamente seu nome de usuário para tentar novamente."
+      },
+      "seconds": 0.6734193000011146,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 28
+    },
+    {
+      "id": "acesso-11-0",
+      "family": "acesso-11",
+      "prompt": "Minha sessão autenticada expira imediatamente ao entrar no portal.",
+      "category": "acesso",
+      "action": "Confira data e horário do dispositivo e informe ao suporte de contas a mensagem exibida.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Solicite novamente sua senha ou confirme seu login.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Solicite novamente sua senha ou confirme seu login."
+      },
+      "seconds": 0.6878343997523189,
+      "peak_vram_mb": 975.10205078125,
+      "input_tokens": 175,
+      "output_tokens": 28
+    },
+    {
+      "id": "acesso-11-1",
+      "family": "acesso-11",
+      "prompt": "Olá, preciso de ajuda: Minha sessão autenticada expira imediatamente ao entrar no portal.",
+      "category": "acesso",
+      "action": "Confira data e horário do dispositivo e informe ao suporte de contas a mensagem exibida.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Informe o nome da sessão e a data limite para expirar.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Informe o nome da sessão e a data limite para expirar."
+      },
+      "seconds": 0.7676196000538766,
+      "peak_vram_mb": 975.380859375,
+      "input_tokens": 184,
+      "output_tokens": 30
+    },
+    {
+      "id": "acesso-11-2",
+      "family": "acesso-11",
+      "prompt": "Estou com este problema: Minha sessão autenticada expira imediatamente ao entrar no portal.",
+      "category": "acesso",
+      "action": "Confira data e horário do dispositivo e informe ao suporte de contas a mensagem exibida.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Verifique sua sessão de autenticação e tente novamente.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Verifique sua sessão de autenticação e tente novamente."
+      },
+      "seconds": 0.7238729000091553,
+      "peak_vram_mb": 975.27099609375,
+      "input_tokens": 181,
+      "output_tokens": 29
+    },
+    {
+      "id": "acesso-11-3",
+      "family": "acesso-11",
+      "prompt": "Chamado para o suporte: Minha sessão autenticada expira imediatamente ao entrar no portal.",
+      "category": "acesso",
+      "action": "Confira data e horário do dispositivo e informe ao suporte de contas a mensagem exibida.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Escolha a nova sessão e solicite a confirmação da nova autenticação.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Escolha a nova sessão e solicite a confirmação da nova autenticação."
+      },
+      "seconds": 0.8701860001310706,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 35
+    },
+    {
+      "id": "acesso-11-4",
+      "family": "acesso-11",
+      "prompt": "Podem orientar o primeiro passo? Minha sessão autenticada expira imediatamente ao entrar no portal.",
+      "category": "acesso",
+      "action": "Confira data e horário do dispositivo e informe ao suporte de contas a mensagem exibida.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Informe ao administrador da sessão que sua sessão expirará imediatamente.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Informe ao administrador da sessão que sua sessão expirará imediatamente."
+      },
+      "seconds": 0.8644656999967992,
+      "peak_vram_mb": 975.380859375,
+      "input_tokens": 184,
+      "output_tokens": 35
+    },
+    {
+      "id": "acesso-12-0",
+      "family": "acesso-12",
+      "prompt": "O e-mail de recuperação da minha conta está cadastrado incorretamente.",
+      "category": "acesso",
+      "action": "Solicite a correção do contato pelo canal oficial de recuperação de contas.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Escolha a conta correta e envie novamente o e-mail.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Escolha a conta correta e envie novamente o e-mail."
+      },
+      "seconds": 0.7692403998225927,
+      "peak_vram_mb": 975.0615234375,
+      "input_tokens": 174,
+      "output_tokens": 30
+    },
+    {
+      "id": "acesso-12-1",
+      "family": "acesso-12",
+      "prompt": "Olá, preciso de ajuda: O e-mail de recuperação da minha conta está cadastrado incorretamente.",
+      "category": "acesso",
+      "action": "Solicite a correção do contato pelo canal oficial de recuperação de contas.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Verifique as informações fornecidas no e-mail para correções necessárias.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Verifique as informações fornecidas no e-mail para correções necessárias."
+      },
+      "seconds": 0.8199335001409054,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 32
+    },
+    {
+      "id": "acesso-12-2",
+      "family": "acesso-12",
+      "prompt": "Estou com este problema: O e-mail de recuperação da minha conta está cadastrado incorretamente.",
+      "category": "acesso",
+      "action": "Solicite a correção do contato pelo canal oficial de recuperação de contas.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Verifique as informações fornecidas no e-mail de recuperação e verifique se estão corretas.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Verifique as informações fornecidas no e-mail de recuperação e verifique se estão corretas."
+      },
+      "seconds": 0.9711386999115348,
+      "peak_vram_mb": 975.2294921875,
+      "input_tokens": 180,
+      "output_tokens": 38
+    },
+    {
+      "id": "acesso-12-3",
+      "family": "acesso-12",
+      "prompt": "Chamado para o suporte: O e-mail de recuperação da minha conta está cadastrado incorretamente.",
+      "category": "acesso",
+      "action": "Solicite a correção do contato pelo canal oficial de recuperação de contas.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Verifique as informações fornecidas no e-mail de recuperação e tente novamente.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Verifique as informações fornecidas no e-mail de recuperação e tente novamente."
+      },
+      "seconds": 0.8446967997588217,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 34
+    },
+    {
+      "id": "acesso-12-4",
+      "family": "acesso-12",
+      "prompt": "Podem orientar o primeiro passo? O e-mail de recuperação da minha conta está cadastrado incorretamente.",
+      "category": "acesso",
+      "action": "Solicite a correção do contato pelo canal oficial de recuperação de contas.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Escolha o e-mail correto para solicitar a correção.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Escolha o e-mail correto para solicitar a correção."
+      },
+      "seconds": 0.7247910001315176,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 30
+    },
+    {
+      "id": "rede-10-0",
+      "family": "rede-10",
+      "prompt": "A rede de visitantes conecta, mas a página de autenticação da rede não abre.",
+      "category": "rede",
+      "action": "Abra um navegador para verificar o portal da rede e informe a falha ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Verifique se a página de autenticação está disponível e se há problemas na conexão do navegador.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Verifique se a página de autenticação está disponível e se há problemas na conexão do navegador."
+      },
+      "seconds": 0.8591971001587808,
+      "peak_vram_mb": 975.15869140625,
+      "input_tokens": 177,
+      "output_tokens": 35
+    },
+    {
+      "id": "rede-10-1",
+      "family": "rede-10",
+      "prompt": "Olá, preciso de ajuda: A rede de visitantes conecta, mas a página de autenticação da rede não abre.",
+      "category": "rede",
+      "action": "Abra um navegador para verificar o portal da rede e informe a falha ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Verifique se a página de autenticação está disponível na tela de login.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Verifique se a página de autenticação está disponível na tela de login."
+      },
+      "seconds": 0.7378201000392437,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 30
+    },
+    {
+      "id": "rede-10-2",
+      "family": "rede-10",
+      "prompt": "Estou com este problema: A rede de visitantes conecta, mas a página de autenticação da rede não abre.",
+      "category": "rede",
+      "action": "Abra um navegador para verificar o portal da rede e informe a falha ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Verifique se a página de autenticação está disponível na sua rede.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Verifique se a página de autenticação está disponível na sua rede."
+      },
+      "seconds": 0.7047695000655949,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 29
+    },
+    {
+      "id": "rede-10-3",
+      "family": "rede-10",
+      "prompt": "Chamado para o suporte: A rede de visitantes conecta, mas a página de autenticação da rede não abre.",
+      "category": "rede",
+      "action": "Abra um navegador para verificar o portal da rede e informe a falha ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Verifique se a página de autenticação está disponível e se há problemas na conexão do servidor.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Verifique se a página de autenticação está disponível e se há problemas na conexão do servidor."
+      },
+      "seconds": 0.8367465999908745,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 35
+    },
+    {
+      "id": "rede-10-4",
+      "family": "rede-10",
+      "prompt": "Podem orientar o primeiro passo? A rede de visitantes conecta, mas a página de autenticação da rede não abre.",
+      "category": "rede",
+      "action": "Abra um navegador para verificar o portal da rede e informe a falha ao suporte de rede.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Escolha a opção de autenticação e clique no botão 'Entrar'.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Escolha a opção de autenticação e clique no botão 'Entrar'."
+      },
+      "seconds": 0.8386776996776462,
+      "peak_vram_mb": 975.474609375,
+      "input_tokens": 186,
+      "output_tokens": 34
+    },
+    {
+      "id": "rede-11-0",
+      "family": "rede-11",
+      "prompt": "Depois de uma queda de energia, todos os pontos de rede da sala pararam.",
+      "category": "rede",
+      "action": "Informe a abrangência da falha ao suporte de rede para verificar os equipamentos da sala.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Conexão das redes para reabilitação.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Conexão das redes para reabilitação."
+      },
+      "seconds": 0.5856650001369417,
+      "peak_vram_mb": 975.10205078125,
+      "input_tokens": 175,
+      "output_tokens": 24
+    },
+    {
+      "id": "rede-11-1",
+      "family": "rede-11",
+      "prompt": "Olá, preciso de ajuda: Depois de uma queda de energia, todos os pontos de rede da sala pararam.",
+      "category": "rede",
+      "action": "Informe a abrangência da falha ao suporte de rede para verificar os equipamentos da sala.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Conexione as redes para verificar se há problemas de conexão.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Conexione as redes para verificar se há problemas de conexão."
+      },
+      "seconds": 0.6969240000471473,
+      "peak_vram_mb": 975.380859375,
+      "input_tokens": 184,
+      "output_tokens": 28
+    },
+    {
+      "id": "rede-11-2",
+      "family": "rede-11",
+      "prompt": "Estou com este problema: Depois de uma queda de energia, todos os pontos de rede da sala pararam.",
+      "category": "rede",
+      "action": "Informe a abrangência da falha ao suporte de rede para verificar os equipamentos da sala.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Conexione as redes para verificar se há problemas de conexão.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Conexione as redes para verificar se há problemas de conexão."
+      },
+      "seconds": 0.6779912002384663,
+      "peak_vram_mb": 975.27099609375,
+      "input_tokens": 181,
+      "output_tokens": 28
+    },
+    {
+      "id": "rede-11-3",
+      "family": "rede-11",
+      "prompt": "Chamado para o suporte: Depois de uma queda de energia, todos os pontos de rede da sala pararam.",
+      "category": "rede",
+      "action": "Informe a abrangência da falha ao suporte de rede para verificar os equipamentos da sala.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Conexão das redes será reatada.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Conexão das redes será reatada."
+      },
+      "seconds": 0.5797028001397848,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 24
+    },
+    {
+      "id": "rede-11-4",
+      "family": "rede-11",
+      "prompt": "Podem orientar o primeiro passo? Depois de uma queda de energia, todos os pontos de rede da sala pararam.",
+      "category": "rede",
+      "action": "Informe a abrangência da falha ao suporte de rede para verificar os equipamentos da sala.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Opcional: Verifique se há conexão à rede por meio de um teste de conexão.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Opcional: Verifique se há conexão à rede por meio de um teste de conexão."
+      },
+      "seconds": 0.8814889001660049,
+      "peak_vram_mb": 975.380859375,
+      "input_tokens": 184,
+      "output_tokens": 35
+    },
+    {
+      "id": "rede-12-0",
+      "family": "rede-12",
+      "prompt": "Chamadas de vídeo têm perda de pacotes, mesmo com o aplicativo atualizado.",
+      "category": "rede",
+      "action": "Compare outra conexão autorizada e registre quando ocorre a perda de pacotes.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Recomenda-se que o usuário verifique se há problemas na conexão Wi-Fi e, caso necessário, atualize o aplicativo.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Recomenda-se que o usuário verifique se há problemas na conexão Wi-Fi e, caso necessário, atualize o aplicativo."
+      },
+      "seconds": 1.0438057002611458,
+      "peak_vram_mb": 975.15869140625,
+      "input_tokens": 177,
+      "output_tokens": 42
+    },
+    {
+      "id": "rede-12-1",
+      "family": "rede-12",
+      "prompt": "Olá, preciso de ajuda: Chamadas de vídeo têm perda de pacotes, mesmo com o aplicativo atualizado.",
+      "category": "rede",
+      "action": "Compare outra conexão autorizada e registre quando ocorre a perda de pacotes.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Verifique as configurações do aplicativo e tente reiniciar o dispositivo.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Verifique as configurações do aplicativo e tente reiniciar o dispositivo."
+      },
+      "seconds": 0.7778855999931693,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 31
+    },
+    {
+      "id": "rede-12-2",
+      "family": "rede-12",
+      "prompt": "Estou com este problema: Chamadas de vídeo têm perda de pacotes, mesmo com o aplicativo atualizado.",
+      "category": "rede",
+      "action": "Compare outra conexão autorizada e registre quando ocorre a perda de pacotes.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Verifique se há problemas na conexão Wi-Fi e tente reiniciar o dispositivo.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Verifique se há problemas na conexão Wi-Fi e tente reiniciar o dispositivo."
+      },
+      "seconds": 0.8159054000861943,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 32
+    },
+    {
+      "id": "rede-12-3",
+      "family": "rede-12",
+      "prompt": "Chamado para o suporte: Chamadas de vídeo têm perda de pacotes, mesmo com o aplicativo atualizado.",
+      "category": "rede",
+      "action": "Compare outra conexão autorizada e registre quando ocorre a perda de pacotes.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Recomenda-se que o usuário verifique se há problemas na conexão Wi-Fi e, caso necessário, atualize o aplicativo.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Recomenda-se que o usuário verifique se há problemas na conexão Wi-Fi e, caso necessário, atualize o aplicativo."
+      },
+      "seconds": 1.0116989999078214,
+      "peak_vram_mb": 975.380859375,
+      "input_tokens": 184,
+      "output_tokens": 42
+    },
+    {
+      "id": "rede-12-4",
+      "family": "rede-12",
+      "prompt": "Podem orientar o primeiro passo? Chamadas de vídeo têm perda de pacotes, mesmo com o aplicativo atualizado.",
+      "category": "rede",
+      "action": "Compare outra conexão autorizada e registre quando ocorre a perda de pacotes.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Escolha um canal de vídeo para monitoramento e verifique se os pacotes estão sendo transferidos.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Escolha um canal de vídeo para monitoramento e verifique se os pacotes estão sendo transferidos."
+      },
+      "seconds": 0.8707669000141323,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 36
+    },
+    {
+      "id": "hardware-10-0",
+      "family": "hardware-10",
+      "prompt": "O gabinete vibra porque o suporte físico do ventilador está solto.",
+      "category": "hardware",
+      "action": "Desligue o equipamento e solicite avaliação técnica da fixação do ventilador.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Revisa o status do ventilador e solicita instalação de suporte físico.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Revisa o status do ventilador e solicita instalação de suporte físico."
+      },
+      "seconds": 0.7698313002474606,
+      "peak_vram_mb": 975.10205078125,
+      "input_tokens": 175,
+      "output_tokens": 32
+    },
+    {
+      "id": "hardware-10-1",
+      "family": "hardware-10",
+      "prompt": "Olá, preciso de ajuda: O gabinete vibra porque o suporte físico do ventilador está solto.",
+      "category": "hardware",
+      "action": "Desligue o equipamento e solicite avaliação técnica da fixação do ventilador.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Escolha um suporte físico para verificar a situação.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Escolha um suporte físico para verificar a situação."
+      },
+      "seconds": 0.7017818000167608,
+      "peak_vram_mb": 975.380859375,
+      "input_tokens": 184,
+      "output_tokens": 27
+    },
+    {
+      "id": "hardware-10-2",
+      "family": "hardware-10",
+      "prompt": "Estou com este problema: O gabinete vibra porque o suporte físico do ventilador está solto.",
+      "category": "hardware",
+      "action": "Desligue o equipamento e solicite avaliação técnica da fixação do ventilador.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Verifique se o ventilador está conectado ao suporte físico e se está funcionando corretamente.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Verifique se o ventilador está conectado ao suporte físico e se está funcionando corretamente."
+      },
+      "seconds": 0.9139565001241863,
+      "peak_vram_mb": 975.27099609375,
+      "input_tokens": 181,
+      "output_tokens": 36
+    },
+    {
+      "id": "hardware-10-3",
+      "family": "hardware-10",
+      "prompt": "Chamado para o suporte: O gabinete vibra porque o suporte físico do ventilador está solto.",
+      "category": "hardware",
+      "action": "Desligue o equipamento e solicite avaliação técnica da fixação do ventilador.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Escolha um suporte físico e solicite que o ventilador seja instalado novamente.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Escolha um suporte físico e solicite que o ventilador seja instalado novamente."
+      },
+      "seconds": 0.838532299734652,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 34
+    },
+    {
+      "id": "hardware-10-4",
+      "family": "hardware-10",
+      "prompt": "Podem orientar o primeiro passo? O gabinete vibra porque o suporte físico do ventilador está solto.",
+      "category": "hardware",
+      "action": "Desligue o equipamento e solicite avaliação técnica da fixação do ventilador.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Opcional: Verifique se o ventilador está conectado ao suporte físico e se está funcionando corretamente.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Opcional: Verifique se o ventilador está conectado ao suporte físico e se está funcionando corretamente."
+      },
+      "seconds": 1.0149491000920534,
+      "peak_vram_mb": 975.380859375,
+      "input_tokens": 184,
+      "output_tokens": 41
+    },
+    {
+      "id": "hardware-11-0",
+      "family": "hardware-11",
+      "prompt": "A dobradiça do notebook quebrou e a tampa não se sustenta.",
+      "category": "hardware",
+      "action": "Evite movimentar a tampa e solicite avaliação da dobradiça.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Repare a situação da dobradiça e procure um reparador para a tampa.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Repare a situação da dobradiça e procure um reparador para a tampa."
+      },
+      "seconds": 0.7922009001486003,
+      "peak_vram_mb": 975.10205078125,
+      "input_tokens": 175,
+      "output_tokens": 32
+    },
+    {
+      "id": "hardware-11-1",
+      "family": "hardware-11",
+      "prompt": "Olá, preciso de ajuda: A dobradiça do notebook quebrou e a tampa não se sustenta.",
+      "category": "hardware",
+      "action": "Evite movimentar a tampa e solicite avaliação da dobradiça.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Conexione o notebook para descobrir se há algum defeito físico na tampa.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Conexione o notebook para descobrir se há algum defeito físico na tampa."
+      },
+      "seconds": 0.8499246002174914,
+      "peak_vram_mb": 975.380859375,
+      "input_tokens": 184,
+      "output_tokens": 33
+    },
+    {
+      "id": "hardware-11-2",
+      "family": "hardware-11",
+      "prompt": "Estou com este problema: A dobradiça do notebook quebrou e a tampa não se sustenta.",
+      "category": "hardware",
+      "action": "Evite movimentar a tampa e solicite avaliação da dobradiça.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Repare a dobradiça e a tampa para garantir que não tenham defeitos físicos.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Repare a dobradiça e a tampa para garantir que não tenham defeitos físicos."
+      },
+      "seconds": 0.9104675999842584,
+      "peak_vram_mb": 975.27099609375,
+      "input_tokens": 181,
+      "output_tokens": 36
+    },
+    {
+      "id": "hardware-11-3",
+      "family": "hardware-11",
+      "prompt": "Chamado para o suporte: A dobradiça do notebook quebrou e a tampa não se sustenta.",
+      "category": "hardware",
+      "action": "Evite movimentar a tampa e solicite avaliação da dobradiça.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Recomenda-se que o usuário abra a dobradura e procure a tampa para garantir que ela esteja no estado correto.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Recomenda-se que o usuário abra a dobradura e procure a tampa para garantir que ela esteja no estado correto."
+      },
+      "seconds": 1.0756167001090944,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 44
+    },
+    {
+      "id": "hardware-11-4",
+      "family": "hardware-11",
+      "prompt": "Podem orientar o primeiro passo? A dobradiça do notebook quebrou e a tampa não se sustenta.",
+      "category": "hardware",
+      "action": "Evite movimentar a tampa e solicite avaliação da dobradiça.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Opcional: Verifique se a dobradiça está fechada corretamente.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Opcional: Verifique se a dobradiça está fechada corretamente."
+      },
+      "seconds": 0.817206900101155,
+      "peak_vram_mb": 975.380859375,
+      "input_tokens": 184,
+      "output_tokens": 33
+    },
+    {
+      "id": "hardware-12-0",
+      "family": "hardware-12",
+      "prompt": "O equipamento caiu e a carcaça ficou deformada.",
+      "category": "hardware",
+      "action": "Desligue o equipamento e solicite inspeção técnica antes de voltar a utilizá-lo.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Reforça a carcaça e solicite assistência técnica.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Reforça a carcaça e solicite assistência técnica."
+      },
+      "seconds": 0.7093695001676679,
+      "peak_vram_mb": 975.04638671875,
+      "input_tokens": 173,
+      "output_tokens": 28
+    },
+    {
+      "id": "hardware-12-1",
+      "family": "hardware-12",
+      "prompt": "Olá, preciso de ajuda: O equipamento caiu e a carcaça ficou deformada.",
+      "category": "hardware",
+      "action": "Desligue o equipamento e solicite inspeção técnica antes de voltar a utilizá-lo.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Conferir a qualidade da carcaça e solicitar reparação.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Conferir a qualidade da carcaça e solicitar reparação."
+      },
+      "seconds": 0.7206688998267055,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 29
+    },
+    {
+      "id": "hardware-12-2",
+      "family": "hardware-12",
+      "prompt": "Estou com este problema: O equipamento caiu e a carcaça ficou deformada.",
+      "category": "hardware",
+      "action": "Desligue o equipamento e solicite inspeção técnica antes de voltar a utilizá-lo.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Reforça a carcaça e solicite assistência técnica.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Reforça a carcaça e solicite assistência técnica."
+      },
+      "seconds": 0.735275000333786,
+      "peak_vram_mb": 975.21435546875,
+      "input_tokens": 179,
+      "output_tokens": 28
+    },
+    {
+      "id": "hardware-12-3",
+      "family": "hardware-12",
+      "prompt": "Chamado para o suporte: O equipamento caiu e a carcaça ficou deformada.",
+      "category": "hardware",
+      "action": "Desligue o equipamento e solicite inspeção técnica antes de voltar a utilizá-lo.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"Reforça a carcaça e solicite assistência técnica.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "Reforça a carcaça e solicite assistência técnica."
+      },
+      "seconds": 0.6902080001309514,
+      "peak_vram_mb": 975.27099609375,
+      "input_tokens": 181,
+      "output_tokens": 28
+    },
+    {
+      "id": "hardware-12-4",
+      "family": "hardware-12",
+      "prompt": "Podem orientar o primeiro passo? O equipamento caiu e a carcaça ficou deformada.",
+      "category": "hardware",
+      "action": "Desligue o equipamento e solicite inspeção técnica antes de voltar a utilizá-lo.",
+      "raw": "{\"categoria\": \"hardware\", \"acao_inicial\": \"O equipamento deve ser recolhido para a instalação.\"}",
+      "parsed": {
+        "categoria": "hardware",
+        "acao_inicial": "O equipamento deve ser recolhido para a instalação."
+      },
+      "seconds": 0.6975924000144005,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 29
+    },
+    {
+      "id": "software-10-0",
+      "family": "software-10",
+      "prompt": "O aplicativo de apresentações perde a formatação ao salvar o arquivo.",
+      "category": "software",
+      "action": "Salve uma cópia de segurança e registre o formato e a versão do aplicativo para o suporte.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Escolha a opção de formatação manual.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Escolha a opção de formatação manual."
+      },
+      "seconds": 0.6467061000876129,
+      "peak_vram_mb": 975.0615234375,
+      "input_tokens": 174,
+      "output_tokens": 26
+    },
+    {
+      "id": "software-10-1",
+      "family": "software-10",
+      "prompt": "Olá, preciso de ajuda: O aplicativo de apresentações perde a formatação ao salvar o arquivo.",
+      "category": "software",
+      "action": "Salve uma cópia de segurança e registre o formato e a versão do aplicativo para o suporte.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Escolha a opção de formatar o arquivo antes de salvar.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Escolha a opção de formatar o arquivo antes de salvar."
+      },
+      "seconds": 0.7478972999379039,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 29
+    },
+    {
+      "id": "software-10-2",
+      "family": "software-10",
+      "prompt": "Estou com este problema: O aplicativo de apresentações perde a formatação ao salvar o arquivo.",
+      "category": "software",
+      "action": "Salve uma cópia de segurança e registre o formato e a versão do aplicativo para o suporte.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Escolha a opção 'Formatação' no menu de configurações.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Escolha a opção 'Formatação' no menu de configurações."
+      },
+      "seconds": 0.8023671000264585,
+      "peak_vram_mb": 975.2294921875,
+      "input_tokens": 180,
+      "output_tokens": 32
+    },
+    {
+      "id": "software-10-3",
+      "family": "software-10",
+      "prompt": "Chamado para o suporte: O aplicativo de apresentações perde a formatação ao salvar o arquivo.",
+      "category": "software",
+      "action": "Salve uma cópia de segurança e registre o formato e a versão do aplicativo para o suporte.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Escolha a opção mais adequada para restaurar a formatação.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Escolha a opção mais adequada para restaurar a formatação."
+      },
+      "seconds": 0.7595497001893818,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 31
+    },
+    {
+      "id": "software-10-4",
+      "family": "software-10",
+      "prompt": "Podem orientar o primeiro passo? O aplicativo de apresentações perde a formatação ao salvar o arquivo.",
+      "category": "software",
+      "action": "Salve uma cópia de segurança e registre o formato e a versão do aplicativo para o suporte.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Escolha a opção de formatação antes de salvar o arquivo.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Escolha a opção de formatação antes de salvar o arquivo."
+      },
+      "seconds": 0.719537100289017,
+      "peak_vram_mb": 975.34716796875,
+      "input_tokens": 183,
+      "output_tokens": 29
+    },
+    {
+      "id": "software-11-0",
+      "family": "software-11",
+      "prompt": "O editor de imagens informa que um arquivo está corrompido.",
+      "category": "software",
+      "action": "Preserve o arquivo original e verifique se existe uma cópia de segurança íntegra.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Verifique a versão do editor de imagem e tente recuperar o arquivo sem corrupção.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Verifique a versão do editor de imagem e tente recuperar o arquivo sem corrupção."
+      },
+      "seconds": 0.9174778000451624,
+      "peak_vram_mb": 975.04638671875,
+      "input_tokens": 173,
+      "output_tokens": 35
+    },
+    {
+      "id": "software-11-1",
+      "family": "software-11",
+      "prompt": "Olá, preciso de ajuda: O editor de imagens informa que um arquivo está corrompido.",
+      "category": "software",
+      "action": "Preserve o arquivo original e verifique se existe uma cópia de segurança íntegra.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Verifique as configurações de segurança do sistema e procure assistência técnica.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Verifique as configurações de segurança do sistema e procure assistência técnica."
+      },
+      "seconds": 0.7885216004215181,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 31
+    },
+    {
+      "id": "software-11-2",
+      "family": "software-11",
+      "prompt": "Estou com este problema: O editor de imagens informa que um arquivo está corrompido.",
+      "category": "software",
+      "action": "Preserve o arquivo original e verifique se existe uma cópia de segurança íntegra.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Verifique a versão do editor de imagem e tente desmarcar o arquivo corrompido.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Verifique a versão do editor de imagem e tente desmarcar o arquivo corrompido."
+      },
+      "seconds": 0.8998139002360404,
+      "peak_vram_mb": 975.21435546875,
+      "input_tokens": 179,
+      "output_tokens": 36
+    },
+    {
+      "id": "software-11-3",
+      "family": "software-11",
+      "prompt": "Chamado para o suporte: O editor de imagens informa que um arquivo está corrompido.",
+      "category": "software",
+      "action": "Preserve o arquivo original e verifique se existe uma cópia de segurança íntegra.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Verifique a versão do editor de imagem e tente recuperar o arquivo sem alterações.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Verifique a versão do editor de imagem e tente recuperar o arquivo sem alterações."
+      },
+      "seconds": 0.8364715999923646,
+      "peak_vram_mb": 975.27099609375,
+      "input_tokens": 181,
+      "output_tokens": 34
+    },
+    {
+      "id": "software-11-4",
+      "family": "software-11",
+      "prompt": "Podem orientar o primeiro passo? O editor de imagens informa que um arquivo está corrompido.",
+      "category": "software",
+      "action": "Preserve o arquivo original e verifique se existe uma cópia de segurança íntegra.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Otimize os arquivos para evitar o problema.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Otimize os arquivos para evitar o problema."
+      },
+      "seconds": 0.6479747998528183,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 26
+    },
+    {
+      "id": "software-12-0",
+      "family": "software-12",
+      "prompt": "O aplicativo de calendário duplica os eventos após uma atualização.",
+      "category": "software",
+      "action": "Registre exemplos de eventos duplicados e a versão instalada antes de alterar os dados.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Revisa as configurações do aplicativo para evitar duplicação dos eventos.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Revisa as configurações do aplicativo para evitar duplicação dos eventos."
+      },
+      "seconds": 0.7653846000321209,
+      "peak_vram_mb": 975.0048828125,
+      "input_tokens": 172,
+      "output_tokens": 30
+    },
+    {
+      "id": "software-12-1",
+      "family": "software-12",
+      "prompt": "Olá, preciso de ajuda: O aplicativo de calendário duplica os eventos após uma atualização.",
+      "category": "software",
+      "action": "Registre exemplos de eventos duplicados e a versão instalada antes de alterar os dados.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Revisa as configurações do aplicativo para garantir que não haja alterações desnecessárias.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Revisa as configurações do aplicativo para garantir que não haja alterações desnecessárias."
+      },
+      "seconds": 0.9463581000454724,
+      "peak_vram_mb": 975.27099609375,
+      "input_tokens": 181,
+      "output_tokens": 37
+    },
+    {
+      "id": "software-12-2",
+      "family": "software-12",
+      "prompt": "Estou com este problema: O aplicativo de calendário duplica os eventos após uma atualização.",
+      "category": "software",
+      "action": "Registre exemplos de eventos duplicados e a versão instalada antes de alterar os dados.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Verifique se há algum erro na instalação do aplicativo.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Verifique se há algum erro na instalação do aplicativo."
+      },
+      "seconds": 0.6966299996711314,
+      "peak_vram_mb": 975.173828125,
+      "input_tokens": 178,
+      "output_tokens": 28
+    },
+    {
+      "id": "software-12-3",
+      "family": "software-12",
+      "prompt": "Chamado para o suporte: O aplicativo de calendário duplica os eventos após uma atualização.",
+      "category": "software",
+      "action": "Registre exemplos de eventos duplicados e a versão instalada antes de alterar os dados.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Recomenda-se que o usuário execute a atualização do aplicativo antes de duplicar os eventos.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Recomenda-se que o usuário execute a atualização do aplicativo antes de duplicar os eventos."
+      },
+      "seconds": 0.8765862002037466,
+      "peak_vram_mb": 975.2294921875,
+      "input_tokens": 180,
+      "output_tokens": 35
+    },
+    {
+      "id": "software-12-4",
+      "family": "software-12",
+      "prompt": "Podem orientar o primeiro passo? O aplicativo de calendário duplica os eventos após uma atualização.",
+      "category": "software",
+      "action": "Registre exemplos de eventos duplicados e a versão instalada antes de alterar os dados.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Esclareça aos usuários que a duplicação dos eventos é uma regra de segurança para evitar alterações desnecessárias.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Esclareça aos usuários que a duplicação dos eventos é uma regra de segurança para evitar alterações desnecessárias."
+      },
+      "seconds": 1.1016008998267353,
+      "peak_vram_mb": 975.27099609375,
+      "input_tokens": 181,
+      "output_tokens": 42
+    },
+    {
+      "id": "outros-10-0",
+      "family": "outros-10",
+      "prompt": "Como faço para reservar a quadra esportiva?",
+      "category": "outros",
+      "action": "Consulte o canal responsável pela reserva da quadra.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Entre em contato com a equipe responsável pela reserva da quadra.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Entre em contato com a equipe responsável pela reserva da quadra."
+      },
+      "seconds": 0.73742809984833,
+      "peak_vram_mb": 974.94921875,
+      "input_tokens": 170,
+      "output_tokens": 27
+    },
+    {
+      "id": "outros-10-1",
+      "family": "outros-10",
+      "prompt": "Olá, preciso de ajuda: Como faço para reservar a quadra esportiva?",
+      "category": "outros",
+      "action": "Consulte o canal responsável pela reserva da quadra.",
+      "raw": "{\"categoria\": \"rede\", \"acao_inicial\": \"Entre em contato com a organizadora da quadra esportiva.\"}",
+      "parsed": {
+        "categoria": "rede",
+        "acao_inicial": "Entre em contato com a organizadora da quadra esportiva."
+      },
+      "seconds": 0.7562016001902521,
+      "peak_vram_mb": 975.21435546875,
+      "input_tokens": 179,
+      "output_tokens": 28
+    },
+    {
+      "id": "outros-10-2",
+      "family": "outros-10",
+      "prompt": "Estou com este problema: Como faço para reservar a quadra esportiva?",
+      "category": "outros",
+      "action": "Consulte o canal responsável pela reserva da quadra.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Entre no site da sua escola ou club e procure a opção 'Reserva'.\"}",
+      "parsed": {
+        "categoria": "software",
+        "acao_inicial": "Entre no site da sua escola ou club e procure a opção 'Reserva'."
+      },
+      "seconds": 0.8942081998102367,
+      "peak_vram_mb": 975.1171875,
+      "input_tokens": 176,
+      "output_tokens": 33
+    },
+    {
+      "id": "outros-10-3",
+      "family": "outros-10",
+      "prompt": "Chamado para o suporte: Como faço para reservar a quadra esportiva?",
+      "category": "outros",
+      "action": "Consulte o canal responsável pela reserva da quadra.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Reserva a quadra através da plataforma de reservas de atividades escolares.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Reserva a quadra através da plataforma de reservas de atividades escolares."
+      },
+      "seconds": 0.7864526999182999,
+      "peak_vram_mb": 975.173828125,
+      "input_tokens": 178,
+      "output_tokens": 32
+    },
+    {
+      "id": "outros-10-4",
+      "family": "outros-10",
+      "prompt": "Podem orientar o primeiro passo? Como faço para reservar a quadra esportiva?",
+      "category": "outros",
+      "action": "Consulte o canal responsável pela reserva da quadra.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Reserva a quadra esportiva através da plataforma de reservas de atividades.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Reserva a quadra esportiva através da plataforma de reservas de atividades."
+      },
+      "seconds": 0.8144878996536136,
+      "peak_vram_mb": 975.21435546875,
+      "input_tokens": 179,
+      "output_tokens": 33
+    },
+    {
+      "id": "outros-11-0",
+      "family": "outros-11",
+      "prompt": "Recebi um aviso, mas não lembro o texto nem de onde veio.",
+      "category": "outros",
+      "action": "Informe o aplicativo e copie a mensagem quando ela aparecer novamente.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Esclareça o texto e solicite informações sobre quem enviou o aviso.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Esclareça o texto e solicite informações sobre quem enviou o aviso."
+      },
+      "seconds": 0.790813300292939,
+      "peak_vram_mb": 975.15869140625,
+      "input_tokens": 177,
+      "output_tokens": 32
+    },
+    {
+      "id": "outros-11-1",
+      "family": "outros-11",
+      "prompt": "Olá, preciso de ajuda: Recebi um aviso, mas não lembro o texto nem de onde veio.",
+      "category": "outros",
+      "action": "Informe o aplicativo e copie a mensagem quando ela aparecer novamente.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Responde ao responsável pelo aviso para verificar se o texto foi enviado corretamente.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Responde ao responsável pelo aviso para verificar se o texto foi enviado corretamente."
+      },
+      "seconds": 0.8274420001544058,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 33
+    },
+    {
+      "id": "outros-11-2",
+      "family": "outros-11",
+      "prompt": "Estou com este problema: Recebi um aviso, mas não lembro o texto nem de onde veio.",
+      "category": "outros",
+      "action": "Informe o aplicativo e copie a mensagem quando ela aparecer novamente.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Responde ao responsável pelo aviso para verificar se há algum erro na mensagem.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Responde ao responsável pelo aviso para verificar se há algum erro na mensagem."
+      },
+      "seconds": 0.7829796997830272,
+      "peak_vram_mb": 975.2880859375,
+      "input_tokens": 182,
+      "output_tokens": 31
+    },
+    {
+      "id": "outros-11-3",
+      "family": "outros-11",
+      "prompt": "Chamado para o suporte: Recebi um aviso, mas não lembro o texto nem de onde veio.",
+      "category": "outros",
+      "action": "Informe o aplicativo e copie a mensagem quando ela aparecer novamente.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Responde ao suporte solicitando informações sobre o texto e onde foi recebido.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Responde ao suporte solicitando informações sobre o texto e onde foi recebido."
+      },
+      "seconds": 0.8146210997365415,
+      "peak_vram_mb": 975.380859375,
+      "input_tokens": 184,
+      "output_tokens": 33
+    },
+    {
+      "id": "outros-11-4",
+      "family": "outros-11",
+      "prompt": "Podem orientar o primeiro passo? Recebi um aviso, mas não lembro o texto nem de onde veio.",
+      "category": "outros",
+      "action": "Informe o aplicativo e copie a mensagem quando ela aparecer novamente.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Escolha o texto que lhe foi enviado para verificar sua identidade.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Escolha o texto que lhe foi enviado para verificar sua identidade."
+      },
+      "seconds": 0.7703971001319587,
+      "peak_vram_mb": 975.44091796875,
+      "input_tokens": 185,
+      "output_tokens": 31
+    },
+    {
+      "id": "outros-12-0",
+      "family": "outros-12",
+      "prompt": "Minha cadeira está desconfortável e preciso de outra.",
+      "category": "outros",
+      "action": "Encaminhe o pedido à equipe responsável pelo mobiliário.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Converse com o proprietário da cadeira para avaliar o status.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Converse com o proprietário da cadeira para avaliar o status."
+      },
+      "seconds": 0.7521064998582006,
+      "peak_vram_mb": 974.98974609375,
+      "input_tokens": 171,
+      "output_tokens": 30
+    },
+    {
+      "id": "outros-12-1",
+      "family": "outros-12",
+      "prompt": "Olá, preciso de ajuda: Minha cadeira está desconfortável e preciso de outra.",
+      "category": "outros",
+      "action": "Encaminhe o pedido à equipe responsável pelo mobiliário.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Conclua o problema da sua cadeira e solicite assistência para encontrar outra.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Conclua o problema da sua cadeira e solicite assistência para encontrar outra."
+      },
+      "seconds": 0.8230392001569271,
+      "peak_vram_mb": 975.2294921875,
+      "input_tokens": 180,
+      "output_tokens": 33
+    },
+    {
+      "id": "outros-12-2",
+      "family": "outros-12",
+      "prompt": "Estou com este problema: Minha cadeira está desconfortável e preciso de outra.",
+      "category": "outros",
+      "action": "Encaminhe o pedido à equipe responsável pelo mobiliário.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Converse com o proprietário da cadeira para avaliar o status e solicitar uma troca.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Converse com o proprietário da cadeira para avaliar o status e solicitar uma troca."
+      },
+      "seconds": 0.8933128998614848,
+      "peak_vram_mb": 975.15869140625,
+      "input_tokens": 177,
+      "output_tokens": 36
+    },
+    {
+      "id": "outros-12-3",
+      "family": "outros-12",
+      "prompt": "Chamado para o suporte: Minha cadeira está desconfortável e preciso de outra.",
+      "category": "outros",
+      "action": "Encaminhe o pedido à equipe responsável pelo mobiliário.",
+      "raw": "{\"categoria\": \"outros\", \"acao_inicial\": \"Opcional: Solicite assistência técnica para ajustar a posição da cadeira.\"}",
+      "parsed": {
+        "categoria": "outros",
+        "acao_inicial": "Opcional: Solicite assistência técnica para ajustar a posição da cadeira."
+      },
+      "seconds": 0.8289212002418935,
+      "peak_vram_mb": 975.21435546875,
+      "input_tokens": 179,
+      "output_tokens": 33
+    },
+    {
+      "id": "outros-12-4",
+      "family": "outros-12",
+      "prompt": "Podem orientar o primeiro passo? Minha cadeira está desconfortável e preciso de outra.",
+      "category": "outros",
+      "action": "Encaminhe o pedido à equipe responsável pelo mobiliário.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Opcional: Solicite assistência ao departamento de suporte.\"}",
+      "parsed": {
+        "categoria": "acesso",
+        "acao_inicial": "Opcional: Solicite assistência ao departamento de suporte."
+      },
+      "seconds": 0.7100050998851657,
+      "peak_vram_mb": 975.2294921875,
+      "input_tokens": 180,
+      "output_tokens": 29
+    }
+  ],
+  "latency_note": "Batch 1, aquecimento excluído, CUDA sincronizada. Tempo da geração; exclui seed, tokenização, decode, download e carregamento."
+}

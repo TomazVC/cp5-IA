@@ -1,0 +1,37 @@
+{
+  "name": "lr-0.0002",
+  "adapter": "artifacts/lr-0.0002",
+  "temperature": 0,
+  "config": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "seed": 42,
+    "max_length": 256,
+    "max_new_tokens": 96,
+    "epochs": 3,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05,
+    "learning_rates": [
+      5e-05,
+      0.0001,
+      0.0002
+    ],
+    "temperatures": [
+      0,
+      0.3,
+      0.7
+    ],
+    "top_p": 0.9
+  },
+  "data_sha256": {
+    "train": "14e2ef6e1d755d1fb7a6d5a6085e17c963830b0b57c133c17ae29a4cc257935e",
+    "validation": "308991e6813db4e0059978e9380a9d8b1524dd2ec464eb331e881b2da44ba8dd",
+    "test": "caa1f5e109b37266fbc3f51f4da6268785836fdb294fa270d761a92630889684"
+  },
+  "adapter_sha256": "8d56aec391c291381b278086759b18e2f86568ea866a4f3dec29178ccfab444b",
+  "prompt_sha256": "6dcf96bd1f224118df00099ae592d06bae880e02dbce5f888b5aa2e73937ee49",
+  "rule": "validation accuracy, JSON validity; training loss tie-break; greedy generation tie-break"
+}

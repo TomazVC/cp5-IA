@@ -57,3 +57,11 @@ Status: proposta ainda não aprovada; sem instalação, código ou treinamento n
 ## Atualização — problema escolhido
 
 O usuário confirmou chamados de suporte. O desenho detalhado está em docs/superpowers/specs/2026-10-14-cp5-design.md; demais escolhas ainda são propostas do assistente para revisão.
+
+## Estado da implementação — 14/10/2026
+
+Desenho aprovado; implementação local concluída e validada. Três treinos completos em CUDA, oito avaliações e frontend funcional. Teste reservado: original 33,3% versus treinado 73,3% de acurácia de categoria, ambos com 100% JSON válido. Ações inadequadas foram identificadas e documentadas; a avaliação humana continua pendente.
+
+Print real da GPU: evidence/gpu-vscode.png. Instruções: README.md. Resultados: docs/RESULTADOS.md. Análise qualitativa do assistente: docs/ANALISE_RESPOSTAS.md.
+
+Git local em cp5-implementation. Publicação GitHub aguarda conta/repositório/visibilidade; nenhum push executado.

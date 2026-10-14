@@ -1,0 +1,181 @@
+{
+  "name": "lr-5e-05",
+  "smoke": false,
+  "learning_rate": 5e-05,
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "config": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "seed": 42,
+    "max_length": 256,
+    "max_new_tokens": 96,
+    "epochs": 3,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05,
+    "learning_rates": [
+      5e-05,
+      0.0001,
+      0.0002
+    ],
+    "temperatures": [
+      0,
+      0.3,
+      0.7
+    ],
+    "top_p": 0.9
+  },
+  "parameters": {
+    "trainable": 540672,
+    "total": 494573440
+  },
+  "system_prompt": "Você faz triagem de chamados de suporte em português. Responda somente um JSON com categoria e acao_inicial. Categorias: acesso (conta, senha, autenticação, permissão), rede (conectividade, Wi-Fi, DNS, VPN), hardware (defeito físico, periférico), software (instalação, atualização, falha de aplicativo), outros (ambíguo ou fora do escopo). Use o impedimento principal; se não for claro, use outros e peça esclarecimento. Sugira uma ação inicial curta, pertinente e não destrutiva. Não peça senhas.",
+  "prompt_sha256": "6dcf96bd1f224118df00099ae592d06bae880e02dbce5f888b5aa2e73937ee49",
+  "train_loss": 1.434893935918808,
+  "eval_loss": 1.5066713094711304,
+  "duration_seconds": 167.90462570032105,
+  "peak_vram_mb": 1381.56201171875,
+  "adapter_weight_max_delta": 0.002150638261809945,
+  "global_step": 96,
+  "best_checkpoint": "C:\\Users\\tomaz\\OneDrive\\Documents\\estudos\\fiap\\generative-ai\\cp5\\artifacts\\lr-5e-05\\checkpoints\\checkpoint-96",
+  "completed_epochs": 3.0,
+  "device": "cuda:0",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "torch": "2.8.0+cu126",
+  "cuda": "12.6",
+  "data_sha256": {
+    "train": "14e2ef6e1d755d1fb7a6d5a6085e17c963830b0b57c133c17ae29a4cc257935e",
+    "validation": "308991e6813db4e0059978e9380a9d8b1524dd2ec464eb331e881b2da44ba8dd",
+    "test": "caa1f5e109b37266fbc3f51f4da6268785836fdb294fa270d761a92630889684"
+  },
+  "history": [
+    {
+      "loss": 1.5493,
+      "grad_norm": 1.6073156595230103,
+      "learning_rate": 4.635416666666667e-05,
+      "epoch": 0.256,
+      "step": 8
+    },
+    {
+      "loss": 1.5542,
+      "grad_norm": 1.5880048274993896,
+      "learning_rate": 4.21875e-05,
+      "epoch": 0.512,
+      "step": 16
+    },
+    {
+      "loss": 1.5174,
+      "grad_norm": 1.4675323963165283,
+      "learning_rate": 3.8020833333333334e-05,
+      "epoch": 0.768,
+      "step": 24
+    },
+    {
+      "loss": 1.4704,
+      "grad_norm": 2.491060256958008,
+      "learning_rate": 3.385416666666667e-05,
+      "epoch": 1.0,
+      "step": 32
+    },
+    {
+      "eval_loss": 1.5815484523773193,
+      "eval_runtime": 3.6632,
+      "eval_samples_per_second": 20.474,
+      "eval_steps_per_second": 20.474,
+      "epoch": 1.0,
+      "step": 32
+    },
+    {
+      "loss": 1.461,
+      "grad_norm": 1.991571068763733,
+      "learning_rate": 2.96875e-05,
+      "epoch": 1.256,
+      "step": 40
+    },
+    {
+      "loss": 1.4229,
+      "grad_norm": 1.4997669458389282,
+      "learning_rate": 2.552083333333333e-05,
+      "epoch": 1.512,
+      "step": 48
+    },
+    {
+      "loss": 1.4118,
+      "grad_norm": 1.4846172332763672,
+      "learning_rate": 2.1354166666666666e-05,
+      "epoch": 1.768,
+      "step": 56
+    },
+    {
+      "loss": 1.3685,
+      "grad_norm": 3.379680633544922,
+      "learning_rate": 1.71875e-05,
+      "epoch": 2.0,
+      "step": 64
+    },
+    {
+      "eval_loss": 1.5246562957763672,
+      "eval_runtime": 3.7406,
+      "eval_samples_per_second": 20.05,
+      "eval_steps_per_second": 20.05,
+      "epoch": 2.0,
+      "step": 64
+    },
+    {
+      "loss": 1.3619,
+      "grad_norm": 2.229341983795166,
+      "learning_rate": 1.3020833333333334e-05,
+      "epoch": 2.2560000000000002,
+      "step": 72
+    },
+    {
+      "loss": 1.3775,
+      "grad_norm": 2.008931875228882,
+      "learning_rate": 8.854166666666667e-06,
+      "epoch": 2.512,
+      "step": 80
+    },
+    {
+      "loss": 1.3909,
+      "grad_norm": 1.6514942646026611,
+      "learning_rate": 4.6875000000000004e-06,
+      "epoch": 2.768,
+      "step": 88
+    },
+    {
+      "loss": 1.3329,
+      "grad_norm": 3.4738659858703613,
+      "learning_rate": 5.208333333333334e-07,
+      "epoch": 3.0,
+      "step": 96
+    },
+    {
+      "eval_loss": 1.5066713094711304,
+      "eval_runtime": 3.6432,
+      "eval_samples_per_second": 20.586,
+      "eval_steps_per_second": 20.586,
+      "epoch": 3.0,
+      "step": 96
+    },
+    {
+      "train_runtime": 164.0027,
+      "train_samples_per_second": 4.683,
+      "train_steps_per_second": 0.585,
+      "total_flos": 342092541694464.0,
+      "train_loss": 1.434893935918808,
+      "epoch": 3.0,
+      "step": 96
+    },
+    {
+      "eval_loss": 1.5066713094711304,
+      "eval_runtime": 3.7983,
+      "eval_samples_per_second": 19.746,
+      "eval_steps_per_second": 19.746,
+      "epoch": 3.0,
+      "step": 96
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-14T18:36:46.075562-03:00",
+  "url": "http://127.0.0.1:7860",
+  "method": "Official Gradio client against real local server, both models CUDA",
+  "input_info": "Máximo 1200 caracteres; limite de 256 tokens incluindo as instruções do modelo.",
+  "results": {
+    "Original": {
+      "category": "software",
+      "action": "Receba uma nova senha para o seu login.",
+      "raw": "{\"categoria\": \"software\", \"acao_inicial\": \"Receba uma nova senha para o seu login.\"}",
+      "execution": "Qwen/Qwen2.5-0.5B-Instruct | original | CUDA | 0.62 s | pico 966 MiB | 25 tokens gerados"
+    },
+    "Treinado": {
+      "category": "acesso",
+      "action": "Informe o nome do usuário e a data da última utilização.",
+      "raw": "{\"categoria\": \"acesso\", \"acao_inicial\": \"Informe o nome do usuário e a data da última utilização.\"}",
+      "execution": "Qwen/Qwen2.5-0.5B-Instruct | lr-0.0002 | CUDA | 0.89 s | pico 975 MiB | 28 tokens gerados"
+    },
+    "empty_prompt_rejected": true
+  }
+}
