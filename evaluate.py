@@ -4,7 +4,7 @@ import json
 import statistics
 
 from model_runtime import CONFIG, Runtime
-from support import ROOT, file_hash, load_splits, score_rows, write_json
+from support import ROOT, file_hash, load_splits, prompt_hash, score_rows, write_json
 
 
 def evaluate(adapter=None, split='validation', temperature=0, name='original'):
@@ -13,7 +13,8 @@ def evaluate(adapter=None, split='validation', temperature=0, name='original'):
     rows = load_splits()[split]
     output = ROOT / f'reports/{name}/{split}-temp-{temperature:g}.json'
     identity = {'config': CONFIG, 'data_sha256': file_hash(ROOT / f'data/{split}.jsonl'),
-                'adapter_sha256': file_hash(adapter / 'adapter_model.safetensors') if adapter else None}
+                'adapter_sha256': file_hash(adapter / 'adapter_model.safetensors') if adapter else None,
+                'prompt_sha256': prompt_hash()}
     if output.exists():
         saved = json.loads(output.read_text(encoding='utf-8'))
         if saved['identity'] != identity:

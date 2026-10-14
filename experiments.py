@@ -3,8 +3,8 @@ import csv
 import json
 from model_runtime import CONFIG, require_cuda
 from evaluate import evaluate
-from support import ROOT, file_hash, load_splits, write_json
-from train import run_name, train
+from support import ROOT, file_hash, load_splits, prompt_hash, write_json
+from train import full_training_steps, run_name, train
 
 
 def check_validation(runs):
@@ -26,21 +26,26 @@ def human_review(original, trained):
     manifest = json.loads((ROOT / 'data/manifest.json').read_text(encoding='utf-8'))
     selected_ids = set(manifest['human_review_ids'])
     path = ROOT / 'reports/human_review.csv'
-    if path.exists():
-        print('CSV de revisão humana já existe; preservado.', flush=True)
-        return
     baseline = {row['id']: row for row in original['rows']}
     fields = ['id', 'prompt', 'category', 'reference_action', 'original_response', 'trained_response',
               'original_pertinencia_0_2', 'original_clareza_0_2', 'original_seguranca_0_2',
               'trained_pertinencia_0_2', 'trained_clareza_0_2', 'trained_seguranca_0_2', 'observacoes']
+    records = [{'id': row['id'], 'prompt': row['prompt'], 'category': row['category'],
+                'reference_action': row['action'], 'original_response': baseline[row['id']]['raw'],
+                'trained_response': row['raw']} for row in trained['rows'] if row['id'] in selected_ids]
+    if path.exists():
+        with path.open(encoding='utf-8-sig', newline='') as handle:
+            existing = list(csv.DictReader(handle))
+        identity_fields = fields[:6]
+        if len(existing) != len(records) or any(
+                any(old.get(key) != new[key] for key in identity_fields) for old, new in zip(existing, records)):
+            raise ValueError('CSV humano pertence a outra avaliação. Arquive reports/human_review.csv antes de repetir.')
+        print('CSV da mesma avaliação já existe; respostas e notas humanas preservadas.', flush=True)
+        return
     with path.open('w', newline='', encoding='utf-8-sig') as handle:
         writer = csv.DictWriter(handle, fieldnames=fields)
         writer.writeheader()
-        for row in trained['rows']:
-            if row['id'] in selected_ids:
-                writer.writerow({'id': row['id'], 'prompt': row['prompt'], 'category': row['category'],
-                                 'reference_action': row['action'], 'original_response': baseline[row['id']]['raw'],
-                                 'trained_response': row['raw']})
+        writer.writerows(records)
 
 
 def write_report(baseline, runs, generation, selection, original, trained):
@@ -101,7 +106,7 @@ def write_report(baseline, runs, generation, selection, original, trained):
 
 def main():
     require_cuda()
-    load_splits()
+    splits = load_splits()
     baseline = evaluate()
     runs = []
     for lr in CONFIG['learning_rates']:
@@ -112,7 +117,10 @@ def main():
             train(lr)
         stats = json.loads(marker.read_text(encoding='utf-8'))
         current_hashes = {split: file_hash(ROOT / f'data/{split}.jsonl') for split in ('train', 'validation', 'test')}
-        if stats['config'] != CONFIG or stats['data_sha256'] != current_hashes or stats['smoke']:
+        expected_steps = full_training_steps(len(splits['train']), CONFIG['batch_size'],
+                                             CONFIG['gradient_accumulation_steps'], CONFIG['epochs'])
+        if (stats['config'] != CONFIG or stats['data_sha256'] != current_hashes or stats['smoke']
+                or stats.get('prompt_sha256') != prompt_hash() or stats['global_step'] != expected_steps):
             raise ValueError(f'{name} pertence a outros dados/parâmetros ou é smoke; preserve antes de repetir.')
         result = evaluate(adapter, name=name)
         runs.append(dict(result, eval_loss=stats['eval_loss'], training=stats))
@@ -124,6 +132,7 @@ def main():
                  'temperature': selected_generation['temperature'], 'config': CONFIG,
                  'data_sha256': best['training']['data_sha256'],
                  'adapter_sha256': file_hash(adapter / 'adapter_model.safetensors'),
+                 'prompt_sha256': prompt_hash(),
                  'rule': 'validation accuracy, JSON validity; training loss tie-break; greedy generation tie-break'}
     write_json(ROOT / 'reports/selection.json', selection)
     original = evaluate(split='test', temperature=selection['temperature'])

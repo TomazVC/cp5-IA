@@ -26,6 +26,10 @@ def file_hash(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def prompt_hash():
+    return hashlib.sha256(SYSTEM_PROMPT.encode('utf-8')).hexdigest()
+
+
 def validate_prompt(prompt):
     if not isinstance(prompt, str) or not prompt.strip():
         raise ValueError('Descreva o chamado antes de enviar.')

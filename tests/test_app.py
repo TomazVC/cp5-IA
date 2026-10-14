@@ -22,6 +22,12 @@ class AppTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'modelo'):
             app.respond('Preciso recuperar minha conta.', 'Inexistente', 0)
 
+    def test_input_limits_are_visible_before_submission(self):
+        demo = app.build_app()
+        prompt = next(block for block in demo.blocks.values() if getattr(block, 'label', '') == 'Descreva o chamado')
+        self.assertIn('1200', prompt.info or '')
+        self.assertIn('256', prompt.info or '')
+
 
 if __name__ == '__main__':
     unittest.main()

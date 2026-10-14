@@ -3,7 +3,7 @@ import json
 import os
 import threading
 
-from support import ROOT, file_hash, validate_prompt
+from support import ROOT, file_hash, prompt_hash, validate_prompt
 from model_runtime import CONFIG, Runtime
 
 os.environ['GRADIO_TEMP_DIR'] = str(ROOT / '.cache/gradio')
@@ -23,7 +23,7 @@ def selected_adapter():
     adapter = (ROOT / selection['adapter']).resolve()
     if not adapter.is_relative_to((ROOT / 'artifacts').resolve()):
         raise ValueError('Caminho do adaptador fora da pasta artifacts.')
-    if selection['config'] != CONFIG:
+    if selection['config'] != CONFIG or selection.get('prompt_sha256') != prompt_hash():
         raise ValueError('A seleção pertence a outros parâmetros. Confira os experimentos.')
     if not (adapter / 'adapter_model.safetensors').exists():
         raise ValueError('Pesos do adaptador não encontrados. Execute experiments.py.')
@@ -73,6 +73,7 @@ def build_app():
         gr.Markdown('Categorias: **acesso**, **rede**, **hardware**, **software** e **outros**. '
                     'Demonstração acadêmica com dados sintéticos; confira as orientações antes de aplicá-las.')
         prompt = gr.Textbox(label='Descreva o chamado', lines=4, max_lines=8,
+                            info='Máximo 1200 caracteres; limite de 256 tokens incluindo as instruções do modelo.',
                             placeholder='Ex.: Esqueci a senha do portal e não consigo entrar.')
         with gr.Row():
             variant = gr.Radio(['Original', 'Treinado'], value='Treinado' if selected.exists() else 'Original', label='Modelo')

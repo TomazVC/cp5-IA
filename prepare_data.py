@@ -12,7 +12,7 @@ def main():
         content = ''.join(json.dumps(row, ensure_ascii=False) + '\n' for row in rows)
         if path.exists() and path.read_text(encoding='utf-8') != content:
             raise ValueError(f'{path.name} já existe com dados diferentes; revise antes de regenerar.')
-        path.write_text(content, encoding='utf-8')
+        path.write_text(content, encoding='utf-8', newline='\n')
     write_json(ROOT / 'data/manifest.json', {
         'source': 'Sintético autoral para demonstração acadêmica; 80 cenários, 5 redações por cenário.',
         'license': 'CC0-1.0', 'split_rule': 'Famílias 0-9 treino, 10-12 validação, 13-15 teste por categoria.',

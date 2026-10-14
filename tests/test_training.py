@@ -40,6 +40,12 @@ class TrainingTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'tokens'):
                 engine.generate('palavra ' * 150, temperature=0, seed=42)
 
+    def test_training_budget_includes_last_partial_accumulation(self):
+        import train
+        self.assertTrue(hasattr(train, 'full_training_steps'), 'Cálculo do orçamento completo ausente')
+        self.assertEqual(train.full_training_steps(250, 1, 8, 3), 96)
+        self.assertEqual(train.full_training_steps(256, 1, 8, 3), 96)
+
 
 if __name__ == '__main__':
     unittest.main()

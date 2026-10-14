@@ -6,7 +6,8 @@ import time
 from functools import lru_cache
 from pathlib import Path
 
-from support import ROOT, SYSTEM_PROMPT, parse_response, validate_prompt
+import support
+from support import ROOT, parse_response, validate_prompt
 
 # Definidos antes de importar Hugging Face; downloads permanecem no exercício.
 os.environ['HF_HOME'] = str(ROOT / '.cache/huggingface')
@@ -34,7 +35,7 @@ def get_tokenizer():
 
 
 def messages(prompt):
-    return [{'role': 'system', 'content': SYSTEM_PROMPT}, {'role': 'user', 'content': prompt}]
+    return [{'role': 'system', 'content': support.SYSTEM_PROMPT}, {'role': 'user', 'content': prompt}]
 
 
 def encode_example(tokenizer, row, max_length):
@@ -83,6 +84,8 @@ class Runtime:
             metadata = json.loads(marker.read_text(encoding='utf-8'))
             if metadata['revision'] != CONFIG['revision']:
                 raise ValueError('Adaptador treinado com revisão diferente do modelo.')
+            if metadata.get('prompt_sha256') != support.prompt_hash():
+                raise ValueError('Adaptador treinado com outro prompt de sistema. Refaça a seleção/treino.')
         self.model = load_base_model()
         if adapter:
             from peft import PeftModel

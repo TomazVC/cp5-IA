@@ -5,13 +5,17 @@ import math
 import time
 
 from model_runtime import CONFIG, collate_examples, encode_example, get_tokenizer, load_base_model, torch
-from support import ROOT, file_hash, load_splits, write_json
+from support import ROOT, SYSTEM_PROMPT, file_hash, load_splits, prompt_hash, write_json
 from peft import LoraConfig, get_peft_model
 from transformers import Trainer, TrainingArguments, set_seed
 
 
 def run_name(lr):
     return f'lr-{lr:g}'
+
+
+def full_training_steps(n_rows, batch_size, accumulation, epochs):
+    return math.ceil(math.ceil(n_rows / batch_size) / accumulation) * epochs
 
 
 def train(lr, smoke=False):
@@ -43,7 +47,10 @@ def train(lr, smoke=False):
         load_best_model_at_end=True, metric_for_best_model='eval_loss', greater_is_better=False,
         save_total_limit=1, logging_steps=1 if smoke else 8, report_to=[],
         seed=CONFIG['seed'], data_seed=CONFIG['seed'], dataloader_num_workers=0,
-        remove_unused_columns=False, optim='adamw_torch', max_steps=2 if smoke else -1)
+        remove_unused_columns=False, optim='adamw_torch',
+        # Transformers 4.51 subestima o último bloco parcial; orçamento explícito cobre três épocas inteiras.
+        max_steps=2 if smoke else full_training_steps(len(encoded['train']), CONFIG['batch_size'],
+                                                     CONFIG['gradient_accumulation_steps'], CONFIG['epochs']))
     trainer = Trainer(model=model, args=args,
         train_dataset=encoded['train'][:8] if smoke else encoded['train'],
         eval_dataset=encoded['validation'][:5] if smoke else encoded['validation'],
@@ -59,11 +66,12 @@ def train(lr, smoke=False):
         raise RuntimeError('Treino sem atualização válida de pesos ou loss não finita.')
     summary = {'name': name, 'smoke': smoke, 'learning_rate': lr, 'model_id': CONFIG['model_id'],
                'revision': CONFIG['revision'], 'config': CONFIG, 'parameters': counts,
+               'system_prompt': SYSTEM_PROMPT, 'prompt_sha256': prompt_hash(),
                'train_loss': result.training_loss, 'eval_loss': final_eval['eval_loss'],
                'duration_seconds': time.perf_counter() - started,
                'peak_vram_mb': torch.cuda.max_memory_allocated() / 1024 ** 2,
                'adapter_weight_max_delta': delta, 'global_step': trainer.state.global_step,
-               'best_checkpoint': trainer.state.best_model_checkpoint,
+               'best_checkpoint': trainer.state.best_model_checkpoint, 'completed_epochs': trainer.state.epoch,
                'device': str(parameter.device), 'gpu': torch.cuda.get_device_name(0),
                'torch': torch.__version__, 'cuda': torch.version.cuda,
                'data_sha256': {split: file_hash(ROOT / f'data/{split}.jsonl') for split in splits},
