@@ -9,7 +9,7 @@
 5. Abra `configs/experiments.json` e a tabela de validação em `RESULTADOS.md`. Compare as três taxas de aprendizado mantendo os demais parâmetros constantes. Mostre loss, duração e VRAM registradas em `reports/*/training.json`.
 6. Explique a seleção: escolher modelo e temperatura pela validação; só depois abrir o teste final. Uma saída com JSON inválido conta como erro. Acurácia mede categoria, não qualidade da ação.
 7. Rode `app.py`, abra http://127.0.0.1:7860 e envie um chamado. Troque entre Original e Treinado com a mesma entrada/temperatura. Mostre categoria, ação, resposta bruta e execução CUDA.
-8. Mostre exemplos de falhas e regressões do relatório; apresente a revisão humana depois de preencher `reports/human_review.csv`.
+8. Mostre exemplos de falhas e regressões do relatório; apresente as notas de `reports/human_review.csv` e suas médias em `RESULTADOS.md`, identificando a revisão como avaliação qualitativa por IA.
 9. Mostre o repositório GitHub com código, dados, configurações, resultados e comandos de reprodução. Ambiente/cache/pesos não precisam estar no Git: são reconstruídos pelos comandos documentados.
 
 ## Chamados para experimentar na interface
@@ -39,6 +39,6 @@ Esses exemplos são para demonstração interativa; não entram retroativamente 
 ## Antes da entrega
 
 - Conferir o relatório de resultados reais e os exemplos de erro.
-- Preencher as 25 linhas do CSV humano, incluindo notas e justificativas.
-- Confirmar com o professor se a interpretação de fine-tuning atende ao pedido.
-- Publicar no destino GitHub definido e conferir se o link abre para o professor.
+- Apresentar os 25 casos do CSV preenchido e as justificativas, mantendo explícita a autoria por IA.
+- Explicar o fine-tuning, confirmado como o treinamento esperado para o exercício.
+- Conferir que a branch de entrega no GitHub contém a documentação e as evidências mais recentes. O acesso foi verificado pelo autor.

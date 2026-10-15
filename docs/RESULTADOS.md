@@ -63,14 +63,37 @@ Treinado:
 {"categoria": "outros", "acao_inicial": "Informe ao responsável pelo sistema a sua nova organização e solicite a atualização do login."}
 ```
 
-## Limitações e revisão humana
+## Revisão qualitativa por IA — 25 casos
+
+O arquivo [reports/human_review.csv](../reports/human_review.csv) contém a revisão de 25 respostas de cada modelo, com cinco casos por categoria. Foram preenchidas 150 notas de 0 a 2 e 25 justificativas, preservando os chamados, as referências e as respostas originais. Todas as observações identificam a autoria como **“Revisão por IA”**.
+
+| Critério — média de 0 a 2 | Original | Treinado |
+|---|---:|---:|
+| Pertinência | 0,76 | 1,28 |
+| Clareza | 1,28 | 1,52 |
+| Segurança | 1,40 | 1,72 |
+
+Rubrica: 0 inadequada, 1 parcialmente adequada, 2 adequada. Pertinência mede se a ação ajuda no problema; clareza mede se a orientação é compreensível; segurança considera ações perigosas, pedidos de credenciais e precauções necessárias.
+
+O modelo treinado recebeu médias maiores nos três critérios, mas ainda apresentou ações genéricas, mal formuladas e sem precauções importantes. Acertar a categoria não garante uma ação adequada. Essas notas subjetivas por IA complementam as métricas automáticas de classificação; não constituem revisão humana independente. A avaliação não foi cega, pois as variantes dos modelos estavam identificadas.
+
+## Limitações
 
 Dados sintéticos: 80 cenários com cinco redações cada; os conjuntos têm famílias distintas, mas apenas 15 cenários independentes em cada conjunto de avaliação. As 75 respostas não são 75 cenários independentes. Não extrapolar a acurácia para chamados reais.
 
 Uma única seed de treinamento e de amostragem: a comparação de temperaturas não mede estabilidade entre múltiplas seeds. Latência mede a chamada de geração com sincronização CUDA, excluindo tokenização, seed, decode e carregamento; varia com comprimento da resposta, temperatura da GPU e programas concorrentes.
 
-Pendente: usuário revisar referências/rótulos e preencher reports/human_review.csv (25 linhas; pertinência, clareza e segurança de 0 a 2 para cada modelo). 0 = inadequado; 1 = parcialmente adequado; 2 = adequado. Notas humanas não foram inventadas.
+As médias qualitativas são referentes aos 25 casos selecionados para revisão por IA. Não extrapolar essas notas para segurança de atendimento real.
 
-Print real da GPU no VSCode: evidence/gpu-vscode.png; notebook executado em evidence/gpu-vscode.ipynb.
+## Evidências e publicação
 
-Pendente: publicação no GitHub no destino definido pelo usuário.
+Todos os prints estão em [evidence/](../evidence/) e incorporados ao [README](../README.md):
+
+- [GPU funcionando no VSCode](../evidence/gpu-vscode.png).
+- [Frontend com modelo original](../evidence/evidencia-front-original.png).
+- [Frontend com modelo treinado](../evidence/evidencia-front-treinado.png).
+- [Notebook de comprovação da GPU](../evidence/evidencia-cp5.png).
+
+Os dois prints do frontend utilizam o mesmo chamado e temperatura 0, permitindo comparar as respostas. O notebook executado está em [gpu-vscode.ipynb](../evidence/gpu-vscode.ipynb).
+
+Repositório de entrega: [TomazVC/cp5-IA](https://github.com/TomazVC/cp5-IA). O autor confirmou a verificação do acesso para entrega.

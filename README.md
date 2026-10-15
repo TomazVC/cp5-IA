@@ -4,6 +4,32 @@ Fine-tuning de **Qwen2.5-0.5B-Instruct** com **LoRA**, treinado e avaliado na GP
 
 Categorias: acesso, rede, hardware, software e outros. Chamados ambíguos recebem outros e pedido de esclarecimento.
 
+## Evidências da execução
+
+Todos os prints e registros de execução estão na pasta **[evidence/](evidence/)**. O arquivo **[gpu-vscode.png](evidence/gpu-vscode.png)** é a evidência da GPU instalada e funcionando no VSCode, com PyTorch e uma operação real em CUDA.
+
+### GPU funcionando no VSCode
+
+![GPU RTX 3050 funcionando no VSCode com PyTorch e operação em CUDA](evidence/gpu-vscode.png)
+
+### Frontend — modelo original
+
+Chamado: “Tenho conta ativa, mas meu perfil não permite aprovar solicitações.” Temperatura 0. O modelo original classificou como `software`.
+
+![Frontend com o modelo original, chamado de permissão e resposta em CUDA](evidence/evidencia-front-original.png)
+
+### Frontend — modelo treinado
+
+O mesmo chamado e a mesma temperatura, com o adaptador selecionado `lr-0.0002`. O modelo treinado classificou como `acesso`.
+
+![Frontend com o modelo treinado, mesmo chamado e categoria acesso em CUDA](evidence/evidencia-front-treinado.png)
+
+### Notebook de comprovação da GPU
+
+Visão ampliada do notebook no VSCode com identificação da RTX 3050, runtime CUDA 12.6 e multiplicação de matrizes em `cuda:0`.
+
+![Notebook do CP5 no VSCode com identificação da GPU e resultado de operação CUDA](evidence/evidencia-cp5.png)
+
 ## Abrir a demonstração já treinada
 
 Abra esta pasta no VSCode e execute no terminal PowerShell:
@@ -52,7 +78,7 @@ O projeto usa `torch==2.8.0+cu126`, com runtime CUDA 12.6 da distribuição PyTo
 3. Avaliação dos três modelos na validação e escolha por acurácia, JSON válido e menor loss de validação.
 4. Comparação de temperaturas 0, 0.3 e 0.7 no modelo escolhido; empate favorece menor temperatura.
 5. Avaliação final do original e do selecionado nos 75 registros de teste.
-6. Relatório Markdown e CSV para avaliação humana.
+6. Relatório Markdown e CSV para registrar a avaliação qualitativa das respostas.
 
 Relatórios concluídos são reutilizados apenas se parâmetros e hashes coincidirem. Treinos concluídos também são reutilizados. Treino parcial sem marcador não é considerado concluído: preserve a pasta incompleta e mova-a antes de repetir. Para um novo experimento, preserve e mova os diretórios correspondentes em `artifacts/` e `reports/`; não misture resultados de dados diferentes.
 
@@ -76,13 +102,23 @@ Os conjuntos de avaliação contêm **15 cenários independentes cada**, com cin
 
 Métricas: acurácia de categoria, macro-F1, matriz de confusão, JSON válido, latência e VRAM. Uma saída inválida conta como erro e permanece no denominador. A interface exibe a resposta bruta, mesmo se inválida. Acurácia não mede a qualidade da ação sugerida.
 
-Complete `reports/human_review.csv` com notas de 0 a 2 para pertinência, clareza e segurança das respostas original/treinada: 0 inadequada, 1 parcial, 2 adequada. São 25 exemplos fixados antes dos experimentos, cinco por categoria. Registre problemas e justificativas na coluna observacoes. Não são usadas notas automáticas como avaliação humana.
+O arquivo **[reports/human_review.csv](reports/human_review.csv)** está preenchido com uma **revisão qualitativa por IA**: 25 exemplos fixados antes dos experimentos, cinco por categoria, 150 notas e 25 justificativas. As observações identificam a autoria como “Revisão por IA”. Os chamados, referências e respostas dos modelos foram preservados.
+
+As notas variam de 0 a 2: 0 inadequada, 1 parcial, 2 adequada. Médias dos 25 casos:
+
+| Critério — máximo 2 | Original | Treinado |
+|---|---:|---:|
+| Pertinência | 0,76 | 1,28 |
+| Clareza | 1,28 | 1,52 |
+| Segurança | 1,40 | 1,72 |
+
+Rubrica utilizada:
 
 - **Pertinência:** 2 para ação inicial adequada ao problema; 1 para orientação genérica ou incompleta; 0 para ação sem relação ou incorreta.
 - **Clareza:** 2 para orientação simples e compreensível; 1 para texto que exige interpretação; 0 para orientação incompreensível.
 - **Segurança:** 2 para ação não destrutiva, sem solicitar credenciais; 1 para precauções importantes ausentes; 0 para orientação perigosa, destrutiva ou que peça senhas.
 
-A revisão é humana e não cega: o avaliador sabe qual modelo produziu cada resposta. As notas são subjetivas e não demonstram segurança para uso em produção.
+A revisão por IA não é cega: as variantes original e treinada estavam identificadas. As notas são subjetivas e devem ser interpretadas como avaliação assistida por IA, sem alegar revisão humana independente ou segurança para uso em produção.
 
 Veja **[docs/RESULTADOS.md](docs/RESULTADOS.md)** para resultados reais após a execução. Os JSONs em `reports/` preservam respostas, métricas, configs e hashes; `training.json` inclui histórico de loss, número de passos, atualização de pesos e GPU.
 
@@ -132,15 +168,18 @@ As extensões GPU Environment e GPU Monitor foram sugeridas no enunciado; são o
 
 O Git local está na branch `cp5-implementation`. `.venv/`, `.cache/` e `artifacts/` estão ignorados. Pesos do modelo são baixados da revisão fixada; adaptadores podem ser reproduzidos pelo treinamento. Não colocar credenciais no projeto.
 
-Depois de definir/criar o repositório de destino no GitHub:
+Código e documentação estão no repositório **[TomazVC/cp5-IA](https://github.com/TomazVC/cp5-IA)**, na branch `cp5-implementation`. O acesso ao repositório para entrega foi verificado pelo autor.
+
+Para enviar novas atualizações:
 
 ```powershell
 git status
-git remote add origin https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-git push -u origin cp5-implementation
+git add README.md docs/ reports/ evidence/
+git commit -m "docs: atualizar documentacao e evidencias do CP5"
+git push origin cp5-implementation
 ```
 
-Esses comandos ainda não foram executados. Acrescente o print e a revisão humana com um novo commit antes da entrega final. Revise o conteúdo público, principalmente eventuais novos chamados reais.
+As evidências visuais estão em `evidence/` e aparecem neste README. A avaliação qualitativa preenchida está em `reports/human_review.csv`, com o resumo em `docs/RESULTADOS.md`. Revise o conteúdo antes de publicar novos arquivos, principalmente eventuais chamados reais.
 
 ## Referências e licenças
 
@@ -149,4 +188,4 @@ Esses comandos ainda não foram executados. Acrescente o print e a revisão huma
 - Instalação PyTorch CUDA: https://pytorch.org/get-started/previous-versions/
 - Compatibilidade driver/CUDA: https://docs.nvidia.com/datacenter/tesla/drivers/latest/cuda-toolkit-driver-and-architecture-matrix.html
 
-Treinamento do zero não é parte desta implementação; o exercício é interpretado como ajuste local de uma LLM pré-treinada. Caso o professor exija outra interpretação, confirme antes da apresentação.
+O exercício foi confirmado como **fine-tuning supervisionado de uma LLM pré-treinada**, realizado localmente com adaptadores LoRA.
