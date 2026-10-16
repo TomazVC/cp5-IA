@@ -4,6 +4,15 @@ Fine-tuning de **Qwen2.5-0.5B-Instruct** com **LoRA**, treinado e avaliado na GP
 
 Categorias: acesso, rede, hardware, software e outros. Chamados ambíguos recebem outros e pedido de esclarecimento.
 
+## Integrantes do grupo
+
+| Nome | RM |
+|---|---|
+| Aksel Viktor Caminha Rae | 99011 |
+| Ian Xavier Kuraoka | 98860 |
+| Tomáz Carballo | 5515417 |
+| Rony Ken Nagai | 551549 |
+
 ## Evidências da execução
 
 Todos os prints e registros de execução estão na pasta **[evidence/](evidence/)**. O arquivo **[gpu-vscode.png](evidence/gpu-vscode.png)** é a evidência da GPU instalada e funcionando no VSCode, com PyTorch e uma operação real em CUDA.

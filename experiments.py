@@ -40,12 +40,50 @@ def human_review(original, trained):
         if len(existing) != len(records) or any(
                 any(old.get(key) != new[key] for key in identity_fields) for old, new in zip(existing, records)):
             raise ValueError('CSV humano pertence a outra avaliação. Arquive reports/human_review.csv antes de repetir.')
-        print('CSV da mesma avaliação já existe; respostas e notas humanas preservadas.', flush=True)
+        print('CSV da mesma avaliação já existe; respostas e notas registradas preservadas.', flush=True)
         return
     with path.open('w', newline='', encoding='utf-8-sig') as handle:
         writer = csv.DictWriter(handle, fieldnames=fields)
         writer.writeheader()
         writer.writerows(records)
+
+
+def review_report_lines():
+    path = ROOT / 'reports/human_review.csv'
+    lines = ['## Avaliação qualitativa das respostas', '']
+    if not path.exists():
+        return lines + ['Nenhuma revisão qualitativa registrada em reports/human_review.csv.', '']
+    with path.open(encoding='utf-8-sig', newline='') as handle:
+        rows = list(csv.DictReader(handle))
+    criteria = [('pertinencia', 'Pertinência'), ('clareza', 'Clareza'), ('seguranca', 'Segurança')]
+    fields = [f'{variant}_{key}_0_2' for variant in ('original', 'trained') for key, _ in criteria]
+    values = [(row.get(field) or '').strip() for row in rows for field in fields]
+    if any(value not in ('', '0', '1', '2') for value in values):
+        raise ValueError('CSV de revisão contém nota inválida; use 0, 1 ou 2.')
+    filled = sum(value != '' for value in values)
+    if not rows or filled != len(values):
+        return lines + [f'Revisão registrada em [reports/human_review.csv](../reports/human_review.csv): '
+                        f'{filled} de {len(values)} notas preenchidas. Médias disponíveis após completar as notas.', '']
+    by_ai = all('revisão por ia' in (row.get('observacoes') or '').casefold() for row in rows)
+    if by_ai:
+        lines[0] = '## Revisão qualitativa por IA'
+    lines.extend([f'O arquivo [reports/human_review.csv](../reports/human_review.csv) contém '
+                  f'{len(rows)} casos e {filled} notas preenchidas de 0 a 2. '
+                  'A autoria e as justificativas estão identificadas nas observações do CSV.', '',
+                  '| Critério — média de 0 a 2 | Original | Treinado |', '|---|---:|---:|'])
+    for key, label in criteria:
+        means = [sum(int(row[f'{variant}_{key}_0_2']) for row in rows) / len(rows)
+                 for variant in ('original', 'trained')]
+        original, trained = [f'{mean:.2f}'.replace('.', ',') for mean in means]
+        lines.append(f'| {label} | {original} | {trained} |')
+    lines.extend(['', 'Rubrica: 0 inadequada, 1 parcialmente adequada, 2 adequada. '
+                  'Pertinência mede a adequação da ação ao problema; clareza, sua compreensão; '
+                  'segurança, as precauções e a ausência de orientações perigosas. '
+                  'Acertar a categoria não garante uma ação adequada.', ''])
+    if by_ai:
+        lines.extend(['A avaliação foi realizada por IA e não foi cega, pois as variantes dos modelos '
+                      'estavam identificadas. As notas são subjetivas e não constituem revisão humana independente.', ''])
+    return lines
 
 
 def write_report(baseline, runs, generation, selection, original, trained):
@@ -94,18 +132,25 @@ def write_report(baseline, runs, generation, selection, original, trained):
                           '', 'Original:', '```text', a['raw'], '```', 'Treinado:', '```text', b['raw'], '```', ''])
         else:
             lines.extend([f'{title}: nenhum caso nesta execução segundo acerto de categoria.', ''])
-    lines.extend(['## Limitações e revisão humana', '',
+    lines.extend(review_report_lines())
+    lines.extend(['## Limitações', '',
         'Dados sintéticos: 80 cenários com cinco redações cada; os conjuntos têm famílias distintas, '
         'mas apenas 15 cenários independentes em cada conjunto de avaliação. '
         'As 75 respostas não são 75 cenários independentes. Não extrapolar a acurácia para chamados reais.',
         '', 'Uma única seed de treinamento e de amostragem: a comparação de temperaturas não mede estabilidade '
         'entre múltiplas seeds. Latência mede a chamada de geração com sincronização CUDA, excluindo '
         'tokenização, seed, decode e carregamento; varia com comprimento da resposta, temperatura da GPU e programas concorrentes.',
-        '', 'Pendente: usuário revisar referências/rótulos e preencher reports/human_review.csv '
-        '(25 linhas; pertinência, clareza e segurança de 0 a 2 para cada modelo). '
-        '0 = inadequado; 1 = parcialmente adequado; 2 = adequado. Notas humanas não foram inventadas.',
-        '', 'Print real da GPU no VSCode: evidence/gpu-vscode.png; notebook executado em evidence/gpu-vscode.ipynb.',
-        '', 'Pendente: publicação no GitHub no destino definido pelo usuário.', ''])
+        '', 'As notas qualitativas complementam as métricas automáticas e não demonstram segurança para atendimento real.',
+        '', '## Evidências e publicação', '',
+        'Os prints estão em [evidence/](../evidence/) e incorporados ao [README](../README.md):', '',
+        '- [GPU funcionando no VSCode](../evidence/gpu-vscode.png).',
+        '- [Frontend com modelo original](../evidence/evidencia-front-original.png).',
+        '- [Frontend com modelo treinado](../evidence/evidencia-front-treinado.png).',
+        '- [Notebook de comprovação da GPU](../evidence/evidencia-cp5.png).', '',
+        'Os prints do frontend usam o mesmo chamado e temperatura 0. '
+        'O notebook executado está em [gpu-vscode.ipynb](../evidence/gpu-vscode.ipynb).', '',
+        'Repositório de entrega: [TomazVC/cp5-IA](https://github.com/TomazVC/cp5-IA). '
+        'O autor confirmou a verificação do acesso para entrega.', ''])
     (ROOT / 'docs/RESULTADOS.md').write_text('\n'.join(lines), encoding='utf-8')
 
 
